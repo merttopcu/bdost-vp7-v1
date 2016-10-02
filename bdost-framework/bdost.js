@@ -885,7 +885,7 @@ function stepOne(senderID, messageText){
     
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
-        fd.step = 2;
+        fd.step = 1;
       }
     }        
   }

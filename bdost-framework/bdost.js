@@ -747,7 +747,8 @@ function getActiveUser(senderID){
            
         var username = bdostTxt.txtGreeting(firstName + " " + lastName);
         
-        facebook.sendQuickReply(senderID,username,fd.db);
+
+        facebook.sendQuickReply(senderID,fd.db);
 
 
         // send user information to Bot Analytics

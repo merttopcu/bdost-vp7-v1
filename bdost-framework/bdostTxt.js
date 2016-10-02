@@ -1,9 +1,9 @@
 'use strict'
 
-var productName 			= "Vodafone";
+var productName 			= "VodafoneDost";
 exports.productName			= productName;
 
-exports.txtGreeting 		= function(username){ return "Merhaba "+ username + ", ben "+productName+". Sana yardım etmek için buradayım!"};
+exports.txtGreeting 		= function(username){ return "Merhaba "+ username + ", ben "+productName+". Size aşağıdaki konular ile ilgili yardımcı olabilirim;"};
 exports.txtSubGreeting 		= "Aşağıdaki seçeneklerden birini seçerek hizlica işlem yapabilirsin ;)";
 exports.txtConfused			= "Sana aşağıdaki konular ile ilgili yardımcı olabilirim.";
 exports.txtAttachment   	= "Üzgünüm, ekli dosyaları ya da emoji ikonlarını ne yazık ki henüz okuyamıyorum. Benim yardımcı olmamı istediğin konuyu yazılı gönderebilirsin.";

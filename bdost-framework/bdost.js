@@ -881,19 +881,12 @@ function stepOne(senderID, messageText, postBack=false){
     console.log(fd.step);
   }
 
-  if(fd.step === 1){
+  if(fd.step === 1 || fd.firstVar === ""){
 
-    if(fd.firstVar){
-      if(fd.firstVar === "Evet"){
-        facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-      }
-    }else{
-      fd.firstVar = getExpression(messageText);
-      if(fd.firstVar === "Evet"){
-        facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-      }else{
-        fd.step = 0;
-      }
+    fd.firstVar = getExpression(messageText);
+
+    if(fd.firstVar === "Evet"){
+      facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
     }
 
   }

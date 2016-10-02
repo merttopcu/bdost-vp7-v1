@@ -896,8 +896,7 @@ function stepOne(senderID, messageText, postBack=false){
     if(fd.firstVar === "Evet"){
       facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
       if(postBack === true){
-        fd.step = 1;
-        
+        fd.step = 2;
       }
     }else{
       fd.step = 0;

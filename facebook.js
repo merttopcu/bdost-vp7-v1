@@ -58,6 +58,7 @@ function receivedPostback(event) {
     }, 10)
   }else if(payload === "PAYLOAD_MODELONE_YES"){
     bdost.saveMessage(senderID, null, bdostTxt.MOCTA);
+    fd.firstVar = bdostTxt.MOCTA;
     setTimeout(function() {
       bdost.stepOne(senderID,bdostTxt.MOCTA);
     }, 10)

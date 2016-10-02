@@ -869,8 +869,12 @@ function stepOne(senderID, messageText, postBack=false){
   var fd              = sessions[sessionUser].context;
 
   if(postBack === true){
+
     fd.firstVar = bdostTxt.MOCTA;
     fd.step = 1;
+     console.log("postbackden geldim.");
+      console.log("fst"+fd.firstVar);
+       console.log("step"+fd.step);
   }
 
   if(fd.step === 0){
@@ -883,7 +887,11 @@ function stepOne(senderID, messageText, postBack=false){
 
   if(fd.step === 1 || fd.firstVar === ""){
 
-    fd.firstVar = getExpression(messageText);
+    if(postBack === true){
+      fd.firstVar = bdostTxt.MOCTA;
+    }else{
+      fd.firstVar = getExpression(messageText);
+    }
 
     if(fd.firstVar === "Evet"){
       facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);

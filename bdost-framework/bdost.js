@@ -229,9 +229,9 @@ function setBotStatus(senderID, botStatus){
   });
 }
 
-function setSearchPreferences(senderID, variable, value){
+function setSearchPreferences(senderID, value){
   processesDB.update({'userId': senderID}, {$set: {
-    variable : value
+    step : value
   }}, function (err, results){
     if (err) console.error(err);
   });
@@ -859,7 +859,7 @@ function flowDiagram(senderID,messageText){
     //if we are already in process move to the next step.
     if(fd.activeProcess){
       fd.step+=1;
-      setSearchPreferences(senderID,"step",fd.step);
+      setSearchPreferences(senderID,fd.step);
     }
   }else{
     fd.pRunAgain = findRequiredModel(messageText,bdostTxt.reRunKeywords);
@@ -892,7 +892,7 @@ function stepOne(senderID, messageText){
     fd.dbStep = true;
     facebook.sendModelOneCTA(senderID,fd.db);
     console.log(fd.step);
-    setSearchPreferences(senderID,"step",0);
+    setSearchPreferences(senderID,fd.step);
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
@@ -903,8 +903,7 @@ function stepOne(senderID, messageText){
     }else{
       fd.step = 0;
     }
-    setSearchPreferences(senderID,"step",0);
-    setSearchPreferences(senderID,"firstVar",fd.firstVar);
+    setSearchPreferences(senderID,fd.step);
   }
 
   if(fd.step === 2){

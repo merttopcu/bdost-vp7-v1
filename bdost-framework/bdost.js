@@ -873,6 +873,7 @@ function stepOne(senderID, messageText){
     fd.db     = "modelOne";
     fd.dbStep = true;
     facebook.sendModelOneCTA(senderID,fd.db);
+    console.log(fd.step);
   }
 
   if(fd.step === 1  || fd.firstVar === ""){
@@ -884,9 +885,9 @@ function stepOne(senderID, messageText){
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-        fd.step = 2;
       }
     }        
+     console.log(fd.step);
   }
 
   if(fd.step === 2 && fd.variables.questionOne === ""){
@@ -898,6 +899,7 @@ function stepOne(senderID, messageText){
       fd.step = 2;
       facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     }
+     console.log(fd.step);
   }
 
   if(fd.step === 3 && fd.variables.questionTwo === ""){

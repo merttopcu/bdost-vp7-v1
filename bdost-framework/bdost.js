@@ -869,13 +869,28 @@ function stepOne(senderID, messageText){
     facebook.sendModelOneCTA(senderID,fd.db);
   }
 
-  if(fd.step === 1  && fd.firstVar === ""){
-    console.log("fdstep:"+fd.step);
-
+  if(fd.step === 1  || fd.firstVar === ""){
     if(fd.step === 2){ fd.dbStep = false; }
+    console.log("fdstep:"+fd.step);
     fd.step = 1;
     fd.firstVar = getExpression(messageText);
     console.log(fd.firstVar);
+    
+    if(fd.firstVar !== ""){
+      if(fd.firstVar === "Evet"){
+        facebook.sendTextMessage(senderID,"demek eveti sectin",fd.db);
+      }else{
+        facebook.sendTextMessage(senderID,"--- anlasilmiyor ---",fd.db);
+      }        
+    // if we couldn't recognize city information.
+    }else{
+      //to keep valid the order of message 
+      setTimeout(function() {
+          facebook.sendTextMessage(senderID,"--- anlasilmiyor ---",fd.db);
+      }, 1000)
+    }         
+    
+    
   }
 }
 

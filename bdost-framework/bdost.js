@@ -32,14 +32,11 @@ function findOrCreateProcess(senderID, message){
       var dbProcess = new processesDB({
         userId: senderID,
         timestamp: new Date(),
-        variables:{
-          firstVar : "",
-          qOne : "",
-          qTwo : "",
-          qThree : "",
-          qFour : ""
-        }
-
+        firstVar : "",
+        qOne : "",
+        qTwo : "",
+        qThree : "",
+        qFour : ""
       });
       dbProcess.save(function (err) {
         if (err) console.error(err);
@@ -222,9 +219,9 @@ function setBotStatus(senderID, botStatus){
   });
 }
 
-function setSearchPreferences(senderID, values){
+function setSearchPreferences(senderID, variable, value){
   processesDB.update({'userId': senderID}, {$set: {
-    variables.firstVar : values.firstVar
+    variable : value
   }}, function (err, results){
     if (err) console.error(err);
   });

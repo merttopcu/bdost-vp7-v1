@@ -1,0 +1,27 @@
+{
+  "name": "bdost-framework",
+  "version": "1.0.0",
+  "description": "BDost Framework",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "lint": "jshint --exclude node_modules .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BDost",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "config": "^1.20.4",
+    "ejs": "^2.4.2",
+    "express": "^4.13.4",
+    "node-wit": "^4.1.0",
+    "request": "^2.72.0",
+    "mongoose": "^4.6.0",
+    "socket.io": "*",
+    "fast-levenshtein": "^2.0.4"
+  },
+  "engines": {
+    "node": "~6.5.0"
+  }
+}

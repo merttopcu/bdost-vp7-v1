@@ -59,7 +59,7 @@ function receivedPostback(event) {
   }else if(payload === "PAYLOAD_MODELONE_YES"){
     bdost.saveMessage(senderID, null, bdostTxt.MOCTA);
     setTimeout(function() {
-      bdost.stepOne(senderID,bdostTxt.MOCTA,true);
+      bdost.stepOne(senderID,bdostTxt.MOCTA);
     }, 10)
   }else if(payload === "PAYLOAD_MODELPLUS"){
      bdost.saveMessage(senderID, null, bdostTxt.modelPlus);

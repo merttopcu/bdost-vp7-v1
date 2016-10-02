@@ -33,11 +33,11 @@ function findOrCreateProcess(senderID, message){
         userId: senderID,
         timestamp: new Date(),
         variables:{
-          firstVar = "",
-          qOne = "",
-          qTwo = "",
-          qThree = "",
-          qFour = ""
+          firstVar : "",
+          qOne : "",
+          qTwo : "",
+          qThree : "",
+          qFour : ""
         }
 
       });

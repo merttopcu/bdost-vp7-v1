@@ -633,7 +633,10 @@ function getExpression(message){
   for(var i=0; i < expressions.trExpressions.length; i++){
 
     distance = levenshtein.get(manuelLowerCase(expressions.trExpressions[i].expression), sentence, { useCollator: true});
-    
+    if(distance < closest){
+      closest = distance;
+      expression = expressions.trExpressions[i].expression;
+    }
     // if expression has an alias, check them all as well.
     if(expressions.trExpressions[i].alias){
       for(var j=0; j<expressions.trExpressions[i].alias.length; j++){
@@ -644,11 +647,7 @@ function getExpression(message){
         }
       }
     }
-
-    if(distance < closest){
-      closest = distance;
-      expression = expressions.trExpressions[i].expression;
-    }
+    
   }
 
   if(closest > 2){
@@ -870,7 +869,7 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 1  || fd.firstVar === ""){
-    if(fd.step === 2){ fd.dbStep = false; }
+    if(fd.step === 2){ fd.dbStep = false;}
     
     console.log("fdstep:"+fd.step);
     fd.step = 1;

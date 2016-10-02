@@ -879,10 +879,7 @@ function stepOne(senderID, messageText){
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"demek eveti sectin",fd.db);
-      }else{
-        facebook.sendTextMessage(senderID,"--- anlasilmiyor ---",fd.db);
-      }        
-    // if we couldn't recognize city information.
+      }
     }         
     
     

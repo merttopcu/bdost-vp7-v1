@@ -864,9 +864,13 @@ function flowDiagram(senderID,messageText){
 }
 
 // flow functions
-function stepOne(senderID, messageText){
+function stepOne(senderID, messageText, postBack=false){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
+
+  if(postBack === true){
+    fd.firstVar = bdostTxt.MOCTA;
+  }
 
   if(fd.step === 0){
     fd.activeProcess = "pOne";

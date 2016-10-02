@@ -588,6 +588,12 @@ function findOrCreateSession(senderID){
       pRunAgain       :false,
       activeProcess   :"",
       firstVar        :"",
+      variables       :{
+        questionOne   : "",
+        questionTwo   : "",
+        questionThree : "",
+        questionFour  : ""
+      },
       firstSubVar     :"",
       secondVar       :"",
       step            :0,
@@ -884,7 +890,9 @@ function stepOne(senderID, messageText){
     }        
   }
 
-  
+  if(fd.step === 2){
+    facebook.sendTextMessage(senderID,"2.stepdesin",fd.db);
+  }
 }
 
 function stepPlus(senderID, messageText){

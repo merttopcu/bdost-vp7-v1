@@ -215,7 +215,7 @@ function saveMessage(senderID, recipientId, message, dbProcess){
 }
 
 function setBotStatus(senderID, botStatus){
-  processesDB.update({'id': senderID}, {$set: {botStatus:botStatus}}, function (err, results){
+  processesDB.update({'userId': senderID}, {$set: {botStatus:botStatus}}, function (err, results){
     if (err) console.error(err);
   });
 }

@@ -883,30 +883,26 @@ function stepOne(senderID, messageText){
     
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
-        fd.step = 2;
+        fd.step = 1;
+        facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
       }
     }        
   }
 
   if(fd.step === 2 && fd.variables.questionOne === ""){
-    facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
     fd.variables.questionOne = messageText;
     console.log("questiomOne:" + fd.variables.questionOne);
     if(fd.variables.quesionOne === ""){
-      fd.step = 1;
+      fd.step = 0;
     }else{
-      fd.step = 3;
+      fd.step = 2;
+      facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     }
   }
 
   if(fd.step === 3 && fd.variables.questionTwo === ""){
-    facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
-    fd.variables.questionTwo = messageText;
-    if(fd.variables.questionTwo === ""){
-      fd.step = 2;
-    }else{
-      fd.step = 3;
-    }
+    
+    console.log("bitir");
   }
 }
 

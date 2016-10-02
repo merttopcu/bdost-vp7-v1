@@ -637,6 +637,7 @@ function getExpression(message){
       closest = distance;
       expression = expressions.trExpressions[i].expression;
     }
+
     // if expression has an alias, check them all as well.
     if(expressions.trExpressions[i].alias){
       for(var j=0; j<expressions.trExpressions[i].alias.length; j++){
@@ -880,11 +881,10 @@ function stepOne(senderID, messageText){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"demek eveti sectin",fd.db);
       }
-    }else{
-      console.log("anlamadim");
-    }         
-    
+    }        
   }
+
+  
 }
 
 function stepPlus(senderID, messageText){

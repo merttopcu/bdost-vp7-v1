@@ -903,6 +903,9 @@ function stepOne(senderID, messageText, postBack=false){
 
   if(fd.step === 2){
     facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
+    if(postBack === true){
+      console.log("postback hala" + fd.firstVar);
+    }
   }
 
   if(fd.step === 3 && fd.variables.questionOne === ""){

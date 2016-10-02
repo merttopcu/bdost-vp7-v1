@@ -881,7 +881,7 @@ function stepOne(senderID, messageText){
     
     fd.step = 1;
     fd.firstVar = getExpression(messageText);
-    
+    console.log("fd first var:"+fd.firstVar);
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);

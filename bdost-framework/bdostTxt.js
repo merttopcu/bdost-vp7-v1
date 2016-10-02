@@ -3,7 +3,7 @@
 var productName 			= "VodafoneDost";
 exports.productName			= productName;
 
-exports.txtGreeting 		= function(username){ return "Merhaba "+ username + ", ben "+productName+". Sana yardım etmek için buradayım!"};
+exports.txtGreeting 		= function(username){ return "Merhaba "+ username + ", ben "+productName+". Size aşağıdaki konular ile ilgili yardımcı olabilirim;"};
 exports.txtSubGreeting 		= "Aşağıdaki seçeneklerden birini seçerek hizlica işlem yapabilirsin ;)";
 exports.txtConfused			= "Sana aşağıdaki konular ile ilgili yardımcı olabilirim.";
 exports.txtAttachment   	= "Üzgünüm, ekli dosyaları ya da emoji ikonlarını ne yazık ki henüz okuyamıyorum. Benim yardımcı olmamı istediğin konuyu yazılı gönderebilirsin.";
@@ -11,9 +11,9 @@ exports.txtAgain			= productName +" tekrar iş başında :)";
 exports.txtBye		 		= "Kariyer hayatında başarılar dilerim. :)";
 
 // 2 + 1 model
-exports.modelOne	 		= "İş Arıyorum";
+exports.modelOne	 		= "Telefon Modellerini İncele";
 exports.modelTwo	 		= "Şifremi Unuttum :(";
-exports.modelPlus	 		= "Yetkili Arıyorum";
+exports.modelPlus	 		= "Yetkili İle Görüş";
 
 //----------------- Model One -----------------
 exports.MOWelcome  			= "Uygun iş fırsatlarını seninle paylaşıp, sana yardım etmek istiyorum.";

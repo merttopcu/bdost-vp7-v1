@@ -154,24 +154,19 @@ function receivedMessage(event) {
  * Send a message with Quick Reply buttons.
  *
  */
-function sendQuickReply(recipientId, dbProcess) {
+function sendQuickReply(recipientId, message, dbProcess) {
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: bdostTxt.txtSubGreeting,
+      text: message,
       metadata: "DEVELOPER_DEFINED_METADATA",
       quick_replies: [
         {
           "content_type":"text",
           "title": bdostTxt.modelOne,
           "payload":"PAYLOAD_MODELONE"
-        },
-        {
-          "content_type":"text",
-          "title": bdostTxt.modelTwo,
-          "payload":"PAYLOAD_MODELTWO"
         },
         {
           "content_type":"text",

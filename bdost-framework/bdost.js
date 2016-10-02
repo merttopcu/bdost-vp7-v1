@@ -581,7 +581,6 @@ function findOrCreateSession(senderID){
       activeUser      :"",
       botStatus       :false,
       pOne            :false,
-      pTwo            :false,
       pPlus           :false,
       pGreeting       :false,
       pExit           :false,
@@ -784,7 +783,6 @@ function clearSessionProcesses(senderID){
   var fd              = sessions[sessionUser].context;
 
   fd.pOne   = false;
-  fd.pTwo   = false;
   fd.pPlus  = false;
 
   fd.pGreeting      = false;
@@ -803,14 +801,13 @@ function flowDiagram(senderID,messageText){
   if(fd.botStatus){
 
     fd.pOne   = findRequiredModel(messageText,bdostTxt.modelOneKeywords);
-    fd.pTwo   = findRequiredModel(messageText,bdostTxt.modelTwoKeywords);
     fd.pPlus  = findRequiredModel(messageText,bdostTxt.modelPlusKeywords);
 
     fd.pGreeting = findRequiredModel(messageText,bdostTxt.greetingKeywords);
     fd.pExit     = findRequiredModel(messageText,bdostTxt.exitKeywords);
 
     //Clear logic to begin process from zero.
-    if(fd.pOne || fd.pTwo || fd.pPlus){
+    if(fd.pOne || fd.pPlus){
       clearSessionVariables(senderID);
     }
 
@@ -819,10 +816,6 @@ function flowDiagram(senderID,messageText){
       stepOne(senderID,messageText);
     }
 
-    // MDDEL TWO'S PROCESSES
-    else if(fd.pTwo === true || fd.activeProcess === "pTwo"){
-      stepTwo(senderID,messageText);
-    }
 
     // MODEL PLUS'S PROCESSES
     else if(fd.pPlus === true){
@@ -849,7 +842,7 @@ function flowDiagram(senderID,messageText){
     fd.pRunAgain = findRequiredModel(messageText,bdostTxt.reRunKeywords);
     
     if(fd.botStatus === false){
-      if(fd.pOne !== "shutdown" || fd.pTwo !== "shutdown" || fd.pPlus !== "shutdown"){
+      if(fd.pOne !== "shutdown" || fd.pPlus !== "shutdown"){
           stepGreeting(senderID);  
           fd.botStatus = true;
       }else{
@@ -927,31 +920,7 @@ function stepOne(senderID, messageText){
     clearSessionProcesses(senderID);
   }
 }
-function stepTwo(senderID, messageText){
-  var sessionUser     = findOrCreateSession(senderID);
-  var fd              = sessions[sessionUser].context;
 
-  if(fd.step === 0){
-    fd.activeProcess = "pTwo";
-    fd.db     = "modelTwo";
-    fd.dbStep = true;
-    facebook.sendTextMessage(senderID,bdostTxt.MTWelcome,fd.db);
-  }
-
-  if(fd.step === 1){
-    fd.dbStep = false;    
-    if(checkEmail(messageText)){
-      fd.firstVar = messageText;
-      // API
-      sendResetPassword(senderID,fd.firstVar);
-    }else{
-      facebook.sendLink(senderID,bdostTxt.MTStepOneFail,bdostTxt.MTFailButton,bdostTxt.MTFailUrl,fd.db);
-    } 
-
-    clearSessionVariables(senderID);
-    clearSessionProcesses(senderID);
-  }
-}
 function stepPlus(senderID, messageText){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
@@ -973,7 +942,7 @@ function stepPlus(senderID, messageText){
     clearSessionProcesses(senderID);
 
     fd.botStatus = false;
-    fd.pOne = fd.pTwo = fd.pPlus = "shutdown";
+    fd.pOne = fd.pPlus = "shutdown";
     console.log(fd.botStatus + " after authorized person request.");
   }
 }
@@ -1029,7 +998,6 @@ exports.clearSessionProcesses = clearSessionProcesses;
 exports.getActiveUser         = getActiveUser;
 
 exports.stepOne               = stepOne;
-exports.stepTwo               = stepTwo;
 exports.stepPlus              = stepPlus;
 
 exports.stepGreeting          = stepGreeting;

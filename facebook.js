@@ -56,11 +56,6 @@ function receivedPostback(event) {
      setTimeout(function() {
      bdost.flowDiagram(senderID,bdostTxt.modelOne);
      }, 10)
-  }else if(payload === "PAYLOAD_MODELTWO"){
-     bdost.saveMessage(senderID, null, bdostTxt.modelTwo);
-     setTimeout(function() {
-     bdost.flowDiagram(senderID,bdostTxt.modelTwo);
-     }, 10)
   }else if(payload === "PAYLOAD_MODELPLUS"){
      bdost.saveMessage(senderID, null, bdostTxt.modelPlus);
      setTimeout(function() {
@@ -203,10 +198,6 @@ function sendButtonMessage(recipientId, dbProcess) {
             payload: "PAYLOAD_MODELONE"
           }, {
             type: "postback",
-            title: bdostTxt.modelTwo,
-            payload: "PAYLOAD_MODELTWO"
-          }, {
-            type: "postback",
             title: bdostTxt.modelPlus,
             payload: "PAYLOAD_MODELPLUS"
           }]
@@ -335,11 +326,6 @@ function addPersistentMenu(){
               type:"postback",
               title:bdostTxt.modelOne,
               payload:"PAYLOAD_MODELONE"
-            },
-            {
-              type:"postback",
-              title:bdostTxt.modelTwo,
-              payload:"PAYLOAD_MODELTWO"
             },
             {
               type:"postback",

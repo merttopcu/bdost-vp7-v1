@@ -621,41 +621,41 @@ function manuelLowerCase(text){
 
   return sentence;
 }
-function getCity(message){
+function getExpression(message){
   var sentence = manuelLowerCase(message);
   var distance = '';
   var closest  = 50;
-  var city = '';
+  var expression = '';
 
   // read json file.
-  var cities = JSON.parse(fs.readFileSync(__dirname + bdostTxt.cities));
+  var expressions = JSON.parse(fs.readFileSync(__dirname + bdostTxt.expressions));
 
-  for(var i=0; i < cities.trCities.length; i++){
+  for(var i=0; i < expressions.trExpressions.length; i++){
 
-    distance = levenshtein.get(manuelLowerCase(cities.trCities[i].city), sentence, { useCollator: true});
+    distance = levenshtein.get(manuelLowerCase(expressions.trExpressions[i].city), sentence, { useCollator: true});
     
     // if city has an alias, check them all as well.
-    if(cities.trCities[i].alias){
-      for(var j=0; j<cities.trCities[i].alias.length; j++){
-        distance = levenshtein.get(manuelLowerCase(cities.trCities[i].alias[j]), sentence, { useCollator: true});
+    if(expressions.trExpressions[i].alias){
+      for(var j=0; j<expressions.trExpressions[i].alias.length; j++){
+        distance = levenshtein.get(manuelLowerCase(expressions.trExpressions[i].alias[j]), sentence, { useCollator: true});
         if(distance < closest){
           closest = distance;
-          city = cities.trCities[i].city;
+          expression = expressions.trExpressions[i].city;
         }
       }
     }
 
     if(distance < closest){
       closest = distance;
-      city = cities.trCities[i].city;
+      expression = expressions.trExpressions[i].city;
     }
   }
 
   if(closest > 2){
-    city = "";
+    expression = "";
   }
   
-  return city;
+  return expression;
 }
 function getDistrict(message){
   var sentence = manuelLowerCase(message);
@@ -816,7 +816,6 @@ function flowDiagram(senderID,messageText){
       stepOne(senderID,messageText);
     }
 
-
     // MODEL PLUS'S PROCESSES
     else if(fd.pPlus === true){
       stepPlus(senderID,messageText);
@@ -870,54 +869,13 @@ function stepOne(senderID, messageText){
     facebook.sendModelOneCTA(senderID,fd.db);
   }
 
-  if(fd.step === 1 || fd.firstVar === ""){
+  if(fd.step === 1  && fd.firstVar === ""){
+    console.log("fdstep:"+fd.step);
+
     if(fd.step === 2){ fd.dbStep = false; }
     fd.step = 1;
-    fd.firstVar = getCity(messageText);
-    
-    // if we've gotten city information.
-    if(fd.firstVar !== ""){
-      if(fd.firstVar === "İstanbul"){
-        facebook.sendTextMessage(senderID,bdostTxt.MOStepSubOne(fd.firstVar),fd.db);
-      }else{
-        facebook.sendTextMessage(senderID,bdostTxt.MOStepOne(fd.firstVar),fd.db);
-      }        
-    // if we couldn't recognize city information.
-    }else{
-      //to keep valid the order of message 
-      setTimeout(function() {
-          facebook.sendTextMessage(senderID,bdostTxt.MOContinue,fd.db);
-      }, 1000)
-    }         
-  }
-
-  if(fd.step === 2 && fd.firstSubVar === ""){
-    if(fd.firstVar === "İstanbul"){
-      fd.firstSubVar = getDistrict(messageText);
-        
-      if(fd.firstSubVar !== ""){
-        facebook.sendTextMessage(senderID,bdostTxt.MOStepSubCont(fd.firstVar, fd.firstSubVar),fd.db);
-      }else{
-        facebook.sendTextMessage(senderID,bdostTxt.MOSubContinue,fd.db);
-        fd.step = 1;
-      }
-    }else{
-      fd.step = 3;
-    }
-  }
-
-  if(fd.step === 3){
-    fd.secondVar = messageText;
-
-    // API
-    if(fd.firstSubVar){
-      sendSearchResults(senderID,fd.firstVar,fd.secondVar,fd.firstSubVar);
-    }else{
-      sendSearchResults(senderID,fd.firstVar,fd.secondVar);
-    }
-    
-    clearSessionVariables(senderID);
-    clearSessionProcesses(senderID);
+    fd.firstVar = getExpression(messageText);
+    console.log(fd.firstVar);
   }
 }
 

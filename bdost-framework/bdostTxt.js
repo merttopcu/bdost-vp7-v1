@@ -5,7 +5,7 @@ exports.productName			= productName;
 
 exports.txtGreeting 		= function(username){ return "Merhaba "+ username + ", ben "+productName+". Size aşağıdaki konular ile ilgili yardımcı olabilirim;"};
 
-exports.txtConfused			= "Sana aşağıdaki konular ile ilgili yardımcı olabilirim.";
+exports.txtConfused			= "Size aşağıdaki konular ile ilgili yardımcı olabilirim.";
 exports.txtAttachment   	= "Üzgünüm, ekli dosyaları ya da emoji ikonlarını ne yazık ki henüz okuyamıyorum. Benim yardımcı olmamı istediğin konuyu yazılı gönderebilirsin.";
 exports.txtAgain			= productName +" tekrar iş başında :)";
 exports.txtBye		 		= "Görüşmek üzere... :)";
@@ -51,5 +51,5 @@ exports.greetingKeywords 	= "/grammar/trTR-greeting";
 exports.exitKeywords	  	= "/grammar/trTR-thanking";
 exports.reRunKeywords    	= "/grammar/trTR-run";
 
-exports.cities 			   	= "/grammar/trTR-cities";
+exports.expressions 		= "/grammar/trTR-expressions";
 exports.districts 		   	= "/grammar/trTR-cities-istanbul";

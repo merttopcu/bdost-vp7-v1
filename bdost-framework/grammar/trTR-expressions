@@ -1,0 +1,13 @@
+{
+  "trExpressions": [
+    {
+      "expression": "Evet",
+      "expressionCode": 1,
+      "alias": [
+        "hazirim",
+        "hazırım",
+        "ok"
+      ]
+    }
+  ]
+}

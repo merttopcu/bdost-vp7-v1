@@ -259,7 +259,7 @@ function sendSearchResults(senderID, firstVar, secondVar, firstSubVar=null) {
   
   facebook.sendTextMessage(senderID,bdostTxt.MOStepTwo(firstVar,secondVar),fd.db);
   
-  setSearchPreferences(senderID, getCityCode(firstVar), secondVar);
+  //setSearchPreferences(senderID, getCityCode(firstVar), secondVar);
 
   var searchResults = '';
   var jobTitle = ['', '', ''];
@@ -530,7 +530,7 @@ function sendSearchResults(senderID, firstVar, secondVar, firstSubVar=null) {
             facebook.sendLink(senderID,bdostTxt.MOEnd,bdostTxt.MOEndButton,returnSearchURL,fd.db);
           }, 2000)
 
-          setSearchPreferences(senderID,getCityCode(firstVar),secondVar);
+          //setSearchPreferences(senderID,getCityCode(firstVar),secondVar);
           
         }else{
           facebook.sendTextMessage(senderID,bdostTxt.MOFailure,fd.db);

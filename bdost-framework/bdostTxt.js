@@ -44,8 +44,7 @@ exports.MPContinue 			= "Ama isterseniz, "+productName+" ile konuşmaya devam ed
 
 
 //----------------- Models' Keywords -----------------
-exports.modelOneKeywords  	= "/grammar/trTR-job-search";
-exports.modelTwoKeywords  	= "/grammar/trTR-forget-password";
+exports.modelOneKeywords  	= "/grammar/trTR-phone-models";
 exports.modelPlusKeywords 	= "/grammar/trTR-authorized";
 
 exports.greetingKeywords 	= "/grammar/trTR-greeting";

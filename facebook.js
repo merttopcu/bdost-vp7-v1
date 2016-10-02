@@ -270,7 +270,7 @@ function sendRunAgainMessage(recipientId, dbProcess) {
           text: bdostTxt.MPContinue,
           buttons:[{
             type: "postback",
-            title: "Tekrar Kariyer Dost",
+            title: "Tekrar "+bdostTxt.productName,
             payload: "PAYLOAD_RUNAGAIN"
           }]
         }

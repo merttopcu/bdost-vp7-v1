@@ -894,17 +894,18 @@ function stepOne(senderID, messageText, postBack=false){
     }
 
     if(fd.firstVar === "Evet"){
-      facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-      if(postBack === true){
-        fd.step = 2;
-      }
+      fd.step = 2;
     }else{
       fd.step = 0;
     }
 
   }
 
-  if(fd.step === 2 && fd.variables.questionOne === ""){
+  if(fd.step === 2){
+    facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
+  }
+
+  if(fd.step === 3 && fd.variables.questionOne === ""){
     fd.variables.questionOne = messageText;
     console.log("questiomOne:" + fd.variables.questionOne);
     if(fd.variables.quesionOne === ""){
@@ -916,7 +917,7 @@ function stepOne(senderID, messageText, postBack=false){
      console.log(fd.step);
   }
 
-  if(fd.step === 3 && fd.variables.questionTwo === ""){
+  if(fd.step === 4 && fd.variables.questionTwo === ""){
     
     console.log("bitir");
   }

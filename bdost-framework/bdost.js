@@ -25,11 +25,22 @@ var db            = mongoose.connection,
 // database functions
 function findOrCreateProcess(senderID, message){
   var sessionUser = findOrCreateSession(senderID);
-  processesDB.findOne({ 'id': senderID }, 'botStatus', function (err, dbProcess) {
+  processesDB.findOne({ 'userId': senderID }, 'botStatus', function (err, dbProcess) {
     if (err) {
       console.error(err);
     } else if (dbProcess === null){
-      var dbProcess = new processesDB({id: senderID, timestamp: new Date(), botStatus: true});
+      var dbProcess = new processesDB({
+        userId: senderID,
+        timestamp: new Date(),
+        variables:{
+          firstVar = "",
+          qOne = "",
+          qTwo = "",
+          qThree = "",
+          qFour = ""
+        }
+
+      });
       dbProcess.save(function (err) {
         if (err) console.error(err);
       });
@@ -211,8 +222,10 @@ function setBotStatus(senderID, botStatus){
   });
 }
 
-function setSearchPreferences(senderID, firstVar, secondVar){
-  processesDB.update({'id': senderID}, {$set: {city:firstVar, job:secondVar}}, function (err, results){
+function setSearchPreferences(senderID, variable, value){
+  processesDB.update({'userId': senderID}, {$set: {
+    variables.variable = value;
+  }}, function (err, results){
     if (err) console.error(err);
   });
 }
@@ -588,12 +601,6 @@ function findOrCreateSession(senderID){
       pRunAgain       :false,
       activeProcess   :"",
       firstVar        :"",
-      variables       :{
-        questionOne   : "",
-        questionTwo   : "",
-        questionThree : "",
-        questionFour  : ""
-      },
       firstSubVar     :"",
       secondVar       :"",
       step            :0,
@@ -864,18 +871,10 @@ function flowDiagram(senderID,messageText){
 }
 
 // flow functions
-function stepOne(senderID, messageText, postBack=false){
+function stepOne(senderID, messageText){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
 
-  if(postBack === true){
-
-    fd.firstVar = bdostTxt.MOCTA;
-    fd.step = 2;
-     console.log("postbackden geldim.");
-      console.log("fst"+fd.firstVar);
-       console.log("step"+fd.step);
-  }
 
   if(fd.step === 0){
     fd.activeProcess = "pOne";
@@ -886,29 +885,20 @@ function stepOne(senderID, messageText, postBack=false){
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
-
-    if(postBack === true){
-      fd.firstVar = bdostTxt.MOCTA;
-    }else{
-      fd.firstVar = getExpression(messageText);
-    }
-
+    fd.firstVar = getExpression(messageText);
+    
     if(fd.firstVar === "Evet"){
       fd.step = 2;
     }else{
       fd.step = 0;
     }
-
   }
 
   if(fd.step === 2){
     facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-    if(postBack === true){
-      console.log("postback hala" + fd.firstVar);
-    }
   }
 
-  if(fd.step === 3 && fd.variables.questionOne === ""){
+  /*if(fd.step === 3 && fd.variables.questionOne === ""){
     fd.variables.questionOne = messageText;
     console.log("questiomOne:" + fd.variables.questionOne);
     if(fd.variables.quesionOne === ""){
@@ -923,7 +913,7 @@ function stepOne(senderID, messageText, postBack=false){
   if(fd.step === 4 && fd.variables.questionTwo === ""){
     
     console.log("bitir");
-  }
+  }*/
 }
 
 function stepPlus(senderID, messageText){

@@ -2,9 +2,14 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = mongoose.model('Processes', new Schema({
-	id : String,
+	userId : String,
 	timestamp : String,
-	botStatus : Boolean,
-	city: Number,
-	job: String	
+	variables : {
+		firstVar: String,
+		step: String,
+		qOne: String,
+		qTwo: String,
+		qThree: String,
+		qFour: String
+	}
 }));

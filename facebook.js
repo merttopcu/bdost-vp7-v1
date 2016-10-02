@@ -170,11 +170,6 @@ function sendQuickReply(recipientId, username, dbProcess) {
         },
         {
           "content_type":"text",
-          "title": bdostTxt.modelTwo,
-          "payload":"PAYLOAD_MODELTWO"
-        },
-        {
-          "content_type":"text",
           "title": bdostTxt.modelPlus,
           "payload":"PAYLOAD_MODELPLUS"
         }

@@ -13,7 +13,7 @@ exports.txtBye		 		= "Kariyer hayatında başarılar dilerim. :)";
 // 2 + 1 model
 exports.modelOne	 		= "Telefon Modelleri";
 exports.modelTwo	 		= "Şifremi Unuttum :(";
-exports.modelPlus	 		= "Yetkili Ile Gorus";
+exports.modelPlus	 		= "Yetkili İle Görüş";
 
 //----------------- Model One -----------------
 exports.MOWelcome  			= "Uygun iş fırsatlarını seninle paylaşıp, sana yardım etmek istiyorum.";

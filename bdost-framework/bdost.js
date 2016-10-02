@@ -889,7 +889,7 @@ function stepOne(senderID, messageText, postBack=false){
         facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
       }else{
         fd.firstVar = getExpression(messageText);
-        fd.step = 0;
+        fd.step = 1;
       }
     }
     

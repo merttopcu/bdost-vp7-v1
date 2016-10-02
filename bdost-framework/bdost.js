@@ -23,7 +23,10 @@ var db            = mongoose.connection,
 
 
 // database functions
-function findOrCreateProcess(senderID, message){
+function findOrCreateProcess(senderID){
+  var sessionUser     = findOrCreateSession(senderID);
+  var fd              = sessions[sessionUser].context;
+
   var sessionUser = findOrCreateSession(senderID);
   processesDB.findOne({ 'userId': senderID }, 'botStatus', function (err, dbProcess) {
     if (err) {
@@ -34,6 +37,7 @@ function findOrCreateProcess(senderID, message){
         timestamp: new Date(),
         botStatus: true,
         firstVar : "",
+        step: 0,
         qOne : "",
         qTwo : "",
         qThree : "",
@@ -44,7 +48,12 @@ function findOrCreateProcess(senderID, message){
       });
       //sessions[sessionUser].context.botStatus = true;
     } else {
-      //sessions[sessionUser].context.botStatus = dbProcess.botStatus;
+      fd.firstVar = dbProcess.firstVar;
+      fd.step     = dbProcess.step;
+      fd.qOne     = dbProcess.qOne;
+      fd.qTwo     = dbProcess.qTwo;
+      fd.qThree   = dbProcess.qThree;
+      fd.qFour    - dbProcess.qFour;
     };
   });
 }
@@ -599,7 +608,10 @@ function findOrCreateSession(senderID){
       pRunAgain       :false,
       activeProcess   :"",
       firstVar        :"",
-      firstSubVar     :"",
+      qOne            :"",
+      qTwo            :"",
+      qThree          :"",
+      qFour           :"",
       secondVar       :"",
       step            :0,
       db              :"",
@@ -873,13 +885,13 @@ function stepOne(senderID, messageText){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
 
-
   if(fd.step === 0){
     fd.activeProcess = "pOne";
     fd.db     = "modelOne";
     fd.dbStep = true;
     facebook.sendModelOneCTA(senderID,fd.db);
     console.log(fd.step);
+    setSearchPreferences(senderID,step,0);
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
@@ -890,6 +902,8 @@ function stepOne(senderID, messageText){
     }else{
       fd.step = 0;
     }
+    setSearchPreferences(senderID,step,0);
+    setSearchPreferences(senderID,firstVar,fd.firstVar);
   }
 
   if(fd.step === 2){

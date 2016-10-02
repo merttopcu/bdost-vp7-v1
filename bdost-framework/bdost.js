@@ -886,6 +886,7 @@ function stepOne(senderID, messageText){
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"demek eveti sectin",fd.db);
+        fd.step++;
       }
     }        
   }

@@ -859,6 +859,7 @@ function flowDiagram(senderID,messageText){
     //if we are already in process move to the next step.
     if(fd.activeProcess){
       fd.step+=1;
+      setSearchPreferences(senderID,"step",fd.step);
     }
   }else{
     fd.pRunAgain = findRequiredModel(messageText,bdostTxt.reRunKeywords);

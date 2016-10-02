@@ -885,14 +885,14 @@ function stepOne(senderID, messageText){
     
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
-        facebook.sendTextMessage(senderID,"demek eveti sectin",fd.db);
+        facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
         fd.step = 1;
       }
     }        
   }
 
   if(fd.step === 2){
-    facebook.sendTextMessage(senderID,"2.stepdesin",fd.db);
+    facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
   }
 }
 

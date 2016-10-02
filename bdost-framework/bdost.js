@@ -878,14 +878,12 @@ function stepOne(senderID, messageText){
   if(fd.step === 1  || fd.firstVar === ""){
     if(fd.step === 2){ fd.dbStep = false;}
     
-    console.log("fdstep:"+fd.step);
     fd.step = 1;
     fd.firstVar = getExpression(messageText);
-    console.log(fd.firstVar);
     
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
-        fd.step = 1;
+        fd.step = 2;
       }
     }        
   }
@@ -895,7 +893,7 @@ function stepOne(senderID, messageText){
     fd.variables.questionOne = messageText;
     console.log(fd.variables.questionOne);
     if(fd.variables.quesionOne === ""){
-      fd.step = 1;
+      fd.step = 2;
     }else{
       fd.step = 3;
     }

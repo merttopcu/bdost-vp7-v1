@@ -871,6 +871,7 @@ function stepOne(senderID, messageText){
 
   if(fd.step === 1  || fd.firstVar === ""){
     if(fd.step === 2){ fd.dbStep = false; }
+    
     console.log("fdstep:"+fd.step);
     fd.step = 1;
     fd.firstVar = getExpression(messageText);
@@ -880,8 +881,9 @@ function stepOne(senderID, messageText){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"demek eveti sectin",fd.db);
       }
+    }else{
+      console.log("anlamadim");
     }         
-    
     
   }
 }

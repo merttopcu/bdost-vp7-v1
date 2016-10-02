@@ -224,7 +224,7 @@ function setBotStatus(senderID, botStatus){
 
 function setSearchPreferences(senderID, variable, value){
   processesDB.update({'userId': senderID}, {$set: {
-    variables[variable] : value;
+    variables.variable : value;
   }}, function (err, results){
     if (err) console.error(err);
   });

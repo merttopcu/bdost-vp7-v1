@@ -60,7 +60,6 @@ function receivedPostback(event) {
     bdost.saveMessage(senderID, null, bdostTxt.MOCTA);
     fd.firstVar = "Evet";
     bdost.flowDiagram(senderID,bdostTxt.modelOne);
-     }, 10)
   }else if(payload === "PAYLOAD_MODELPLUS"){
      bdost.saveMessage(senderID, null, bdostTxt.modelPlus);
      setTimeout(function() {

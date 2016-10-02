@@ -632,22 +632,22 @@ function getExpression(message){
 
   for(var i=0; i < expressions.trExpressions.length; i++){
 
-    distance = levenshtein.get(manuelLowerCase(expressions.trExpressions[i].city), sentence, { useCollator: true});
+    distance = levenshtein.get(manuelLowerCase(expressions.trExpressions[i].expression), sentence, { useCollator: true});
     
-    // if city has an alias, check them all as well.
+    // if expression has an alias, check them all as well.
     if(expressions.trExpressions[i].alias){
       for(var j=0; j<expressions.trExpressions[i].alias.length; j++){
         distance = levenshtein.get(manuelLowerCase(expressions.trExpressions[i].alias[j]), sentence, { useCollator: true});
         if(distance < closest){
           closest = distance;
-          expression = expressions.trExpressions[i].city;
+          expression = expressions.trExpressions[i].expression;
         }
       }
     }
 
     if(distance < closest){
       closest = distance;
-      expression = expressions.trExpressions[i].city;
+      expression = expressions.trExpressions[i].expression;
     }
   }
 

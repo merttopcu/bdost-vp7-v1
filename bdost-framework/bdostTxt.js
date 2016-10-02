@@ -11,9 +11,9 @@ exports.txtAgain			= productName +" tekrar iş başında :)";
 exports.txtBye		 		= "Kariyer hayatında başarılar dilerim. :)";
 
 // 2 + 1 model
-exports.modelOne	 		= "Telefon Modellerini Incele";
+exports.modelOne	 		= "Telefon Modelleri";
 exports.modelTwo	 		= "Şifremi Unuttum :(";
-exports.modelPlus	 		= "Yetkili";
+exports.modelPlus	 		= "Yetkili Ile Gorus";
 
 //----------------- Model One -----------------
 exports.MOWelcome  			= "Uygun iş fırsatlarını seninle paylaşıp, sana yardım etmek istiyorum.";

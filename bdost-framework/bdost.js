@@ -876,18 +876,13 @@ function stepOne(senderID, messageText){
     fd.firstVar = getExpression(messageText);
     console.log(fd.firstVar);
     
-    if(fd.firstVar !== ""){
+    if(fd.firstVar){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"demek eveti sectin",fd.db);
       }else{
         facebook.sendTextMessage(senderID,"--- anlasilmiyor ---",fd.db);
       }        
     // if we couldn't recognize city information.
-    }else{
-      //to keep valid the order of message 
-      setTimeout(function() {
-          facebook.sendTextMessage(senderID,"--- anlasilmiyor ---",fd.db);
-      }, 1000)
     }         
     
     

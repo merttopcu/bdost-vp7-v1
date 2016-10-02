@@ -32,6 +32,7 @@ function findOrCreateProcess(senderID, message){
       var dbProcess = new processesDB({
         userId: senderID,
         timestamp: new Date(),
+        botStatus: true,
         firstVar : "",
         qOne : "",
         qTwo : "",

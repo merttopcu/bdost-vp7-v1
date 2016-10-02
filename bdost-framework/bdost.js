@@ -878,12 +878,6 @@ function stepOne(senderID, messageText, postBack=false){
   }
 
   if(fd.step === 1  || fd.firstVar === ""){
-    if(fd.step === 2){ fd.dbStep = false;}
-    console.log("fd first var1:"+fd.firstVar);
-
-    fd.step = 1;
-    fd.firstVar = getExpression(messageText);
-    console.log("fd first var2:"+fd.firstVar);
 
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
@@ -892,8 +886,11 @@ function stepOne(senderID, messageText, postBack=false){
     }else{
       if(postBack === true){
         fd.firstVar = bdostTxt.MOCTA;
+        facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
+      }else{
+        fd.firstVar = getExpression(messageText);
       }
-    }        
+    }
     
     console.log(fd.step);
   }

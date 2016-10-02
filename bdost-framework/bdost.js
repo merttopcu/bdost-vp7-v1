@@ -222,9 +222,9 @@ function setBotStatus(senderID, botStatus){
   });
 }
 
-function setSearchPreferences(senderID, variable, value){
+function setSearchPreferences(senderID, values){
   processesDB.update({'userId': senderID}, {$set: {
-    variables.variable : value;
+    variables.firstVar : values.firstVar
   }}, function (err, results){
     if (err) console.error(err);
   });

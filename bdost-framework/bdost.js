@@ -891,7 +891,7 @@ function stepOne(senderID, messageText){
     fd.dbStep = true;
     facebook.sendModelOneCTA(senderID,fd.db);
     console.log(fd.step);
-    setSearchPreferences(senderID,step,0);
+    setSearchPreferences(senderID,"step",0);
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
@@ -902,8 +902,8 @@ function stepOne(senderID, messageText){
     }else{
       fd.step = 0;
     }
-    setSearchPreferences(senderID,step,0);
-    setSearchPreferences(senderID,firstVar,fd.firstVar);
+    setSearchPreferences(senderID,"step",0);
+    setSearchPreferences(senderID,"firstVar",fd.firstVar);
   }
 
   if(fd.step === 2){

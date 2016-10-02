@@ -1,6 +1,6 @@
 'use strict'
 
-var productName 			= "KariyerDost";
+var productName 			= "VodafoneDost";
 exports.productName			= productName;
 
 exports.txtGreeting 		= function(username){ return "Merhaba "+ username + ", ben "+productName+". Sana yardım etmek için buradayım!"};

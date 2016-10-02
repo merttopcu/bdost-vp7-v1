@@ -868,6 +868,10 @@ function stepOne(senderID, messageText, postBack=false){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
 
+  if(postBack === true){
+    fd.firstVar = bdostTxt.MOCTA;
+    fd.step = 1;
+  }
 
   if(fd.step === 0){
     fd.activeProcess = "pOne";
@@ -877,23 +881,19 @@ function stepOne(senderID, messageText, postBack=false){
     console.log(fd.step);
   }
 
-  if(fd.step === 1  || fd.firstVar === ""){
+  if(fd.step === 1){
 
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
       }
     }else{
-      if(postBack === true){
-        fd.firstVar = bdostTxt.MOCTA;
+      fd.firstVar = getExpression(messageText);
+      if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-      }else{
-        fd.firstVar = getExpression(messageText);
-        fd.step = 1;
       }
     }
-    
-    console.log(fd.step);
+
   }
 
   if(fd.step === 2 && fd.variables.questionOne === ""){

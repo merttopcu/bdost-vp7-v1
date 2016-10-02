@@ -36,21 +36,8 @@ exports.MOEnd      			= "Tüm iş ilanları ve başvuru için adres aşağıda. 
 exports.MOEndButton         = "Tüm İş İlanları"
 exports.MOFailure  			= "Ozur dilerim ama aramaniz sonuc vermedi. Isterseniz 'İş Arıyorum' yazarak tekrar deneyebilirsiniz.";
 
-//----------------- Model Two -----------------
-exports.MTWelcome  			= "Geçmiş olsun :( Merak etme hemen sana yardımcı olacağım. Kariyer.net hesabında kullandığın e-posta adresini yazar mısın?";
-exports.MTStepOneOk			= "Süper! E-posta adresine şifre sıfırlama mailini gönderdim. Farklı bir sorun olursa her zaman buradan benimle iletişime geçebilirsin.";
-exports.MTNotRegistered		= "Üzgünüm bu e-posta adresi ile kayıtlı bir kullanıcı bulamadım.";
-
-exports.MTNewRegister		= "Ama istersen bu e-posta adresi ile yeni üyelik yaratabilirsin. Hemen denemek ister misin?";
-exports.MTNewRegisterButton = "Yeni Üyelik";
-exports.MTNewRegisterUrl    = "http://www.kariyer.net/WebSite/Kariyerim/UyeOl.aspx";
-
-exports.MTStepOneFail		= "E-posta adresini tam anlayamadım ama sana yardımcı olmak için, aşağıdaki linki oluşturdum. Bu adrese tıklayarak, şifreni sıfırlayıp, yeni şifre oluşturabilirsin.";
-exports.MTFailButton		= "Şifre Sıfırlama";
-exports.MTFailUrl			= "http://www.kariyer.net/website/teknikdestek/sifremiunuttum/s1.aspx";
-
 //----------------- Model Plus -----------------
-exports.MPWelcome  			= "Tabii ki, sizi yetkili arkadaşıma yönlendiriyorum. Sizinle en kısa zamanda, yine Facebook Messenger üzerinden iletişime geçecektir."
+exports.MPWelcome  			= "Sizi yetkili danışmana aktarıyorum. En kısa zamanda sizinle facebook üzerinden iletişime geçecekler."
 exports.MPContinue 			= "Ama isterseniz, "+productName+" ile konuşmaya devam edebilirsiniz.";
 
 

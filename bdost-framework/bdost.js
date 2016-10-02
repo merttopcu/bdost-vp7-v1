@@ -878,18 +878,19 @@ function stepOne(senderID, messageText){
 
   if(fd.step === 1  || fd.firstVar === ""){
     if(fd.step === 2){ fd.dbStep = false;}
-    
+    console.log("fd first var1:"+fd.firstVar);
+
     fd.step = 1;
     fd.firstVar = getExpression(messageText);
-    console.log("fd first var:"+fd.firstVar);
+    console.log("fd first var2:"+fd.firstVar);
+
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
-        //When we come here from postback.
-        fd.firstVar = "Evet";
         facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
       }
     }        
-     console.log(fd.step);
+    
+    console.log(fd.step);
   }
 
   if(fd.step === 2 && fd.variables.questionOne === ""){

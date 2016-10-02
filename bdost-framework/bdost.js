@@ -885,7 +885,7 @@ function stepOne(senderID, messageText){
     
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
-        fd.step = 1;
+        fd.step = 2;
       }
     }        
   }
@@ -895,9 +895,9 @@ function stepOne(senderID, messageText){
     fd.variables.questionOne = messageText;
     
     if(fd.variables.quesionOne === ""){
-      fd.step = 1;
-    }else{
       fd.step = 2;
+    }else{
+      fd.step = 3;
     }
   }
 

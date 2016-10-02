@@ -893,13 +893,18 @@ function stepOne(senderID, messageText){
   if(fd.step === 2 && fd.variables.questionOne === ""){
     facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
     fd.variables.questionOne = messageText;
-    fd.step = 3;
+    
+    if(fd.variables.quesionOne === ""){
+      fd.step = 1;
+    }
   }
 
   if(fd.step === 3 && fd.variables.questionTwo === ""){
     facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     fd.variables.questionTwo = messageText;
-    fd.step = 4;
+    if(fd.variables.questionTwo === ""){
+      fd.step = 2;
+    }
   }
 }
 

@@ -867,7 +867,7 @@ function stepOne(senderID, messageText){
     fd.activeProcess = "pOne";
     fd.db     = "modelOne";
     fd.dbStep = true;
-    facebook.sendTextMessage(senderID,bdostTxt.MOWelcome,fd.db);
+    facebook.sendModelOneCTA(senderID,fd.db);
   }
 
   if(fd.step === 1 || fd.firstVar === ""){

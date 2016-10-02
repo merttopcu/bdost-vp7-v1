@@ -4,18 +4,20 @@ var productName 			= "VodafoneDost";
 exports.productName			= productName;
 
 exports.txtGreeting 		= function(username){ return "Merhaba "+ username + ", ben "+productName+". Size aşağıdaki konular ile ilgili yardımcı olabilirim;"};
-exports.txtSubGreeting 		= "Aşağıdaki seçeneklerden birini seçerek hizlica işlem yapabilirsin ;)";
+
 exports.txtConfused			= "Sana aşağıdaki konular ile ilgili yardımcı olabilirim.";
 exports.txtAttachment   	= "Üzgünüm, ekli dosyaları ya da emoji ikonlarını ne yazık ki henüz okuyamıyorum. Benim yardımcı olmamı istediğin konuyu yazılı gönderebilirsin.";
 exports.txtAgain			= productName +" tekrar iş başında :)";
-exports.txtBye		 		= "Kariyer hayatında başarılar dilerim. :)";
+exports.txtBye		 		= "Görüşmek üzere... :)";
 
 // 2 + 1 model
 exports.modelOne	 		= "Telefon Modelleri";
 exports.modelPlus	 		= "Yetkili İle Görüş";
 
 //----------------- Model One -----------------
-exports.MOWelcome  			= "Uygun iş fırsatlarını seninle paylaşıp, sana yardım etmek istiyorum.";
+exports.MOWelcome  			= "Süper, size uygun telefon modellerini yönlendirebilmek için bazı sorular soracağım. Hazır mısınız?";
+exports.MOCTA               = "Evet";
+
 exports.MOContinue 			= "Öncelikle bana hangi ilde iş aradığını söyler misin?";
 exports.MOStepOne  			= function(firstVar){
 	return "Tamam, "+ firstVar +" için iş arıyorsun. Peki ilgilendiğin mesleği yazar mısın?";

@@ -313,6 +313,33 @@ function sendLink(recipientId,text,title,url,dbProcess) {
 }
 
 // created by alperen.
+function sendModelOneCTA(recipientId, dbProcess) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      attachment: {
+        type: "template",
+        payload: {
+          template_type: "button",
+          text: bdostTxt.MOWelcome,
+          buttons:[{
+            type: "postback",
+            title: bdostTxt.MOCTA,
+            payload: "PAYLOAD_MODELONE"
+          }]
+        }
+      }
+    }
+  };  
+  
+  bdost.saveMessage(null, recipientId, messageData.message.attachment.payload.text, dbProcess);
+  //botAnalytics.track(recipientId,messageData.message,new Date().getTime());
+  callSendAPI(messageData);
+}
+
+// created by alperen.
 function addPersistentMenu(){
  request({
     url: 'https://graph.facebook.com/v2.6/me/thread_settings',

@@ -871,7 +871,7 @@ function stepOne(senderID, messageText, postBack=false){
   if(postBack === true){
 
     fd.firstVar = bdostTxt.MOCTA;
-    fd.step = 1;
+    fd.step = 2;
      console.log("postbackden geldim.");
       console.log("fst"+fd.firstVar);
        console.log("step"+fd.step);

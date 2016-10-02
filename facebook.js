@@ -47,8 +47,8 @@ function receivedPostback(event) {
   
   // added by alperen
   bdost.setBotStatus(senderID,true);
-
-  var fd          = bdost.sessions[senderID].context;
+  var sessionUser = bdost.findOrCreateSession(senderID);
+  var fd          = bdost.sessions[sessionUser].context;
   fd.botStatus    = true;
   
   if(payload === "PAYLOAD_MODELONE"){
@@ -58,8 +58,6 @@ function receivedPostback(event) {
     }, 10)
   }else if(payload === "PAYLOAD_MODELONE_YES"){
     bdost.saveMessage(senderID, null, bdostTxt.MOCTA);
-    fd.firstVar = bdostTxt.MOCTA;
-    fd.step = 1;
     setTimeout(function() {
       bdost.stepOne(senderID,bdostTxt.MOCTA,true);
     }, 10)

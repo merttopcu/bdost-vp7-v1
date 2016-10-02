@@ -868,9 +868,6 @@ function stepOne(senderID, messageText, postBack=false){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
 
-  if(postBack === true){
-    fd.firstVar = bdostTxt.MOCTA;
-  }
 
   if(fd.step === 0){
     fd.activeProcess = "pOne";
@@ -891,7 +888,10 @@ function stepOne(senderID, messageText, postBack=false){
     if(fd.firstVar){
       if(fd.firstVar === "Evet"){
         facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-        fd.step = 1;
+      }
+    }else{
+      if(postBack === true){
+        fd.firstVar = bdostTxt.MOCTA;
       }
     }        
     

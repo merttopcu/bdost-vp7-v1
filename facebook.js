@@ -160,7 +160,7 @@ function sendQuickReply(recipientId, message, dbProcess) {
       id: recipientId
     },
     message: {
-      text: message,
+      text: bdostTxt.txtSubGreeting,
       metadata: "DEVELOPER_DEFINED_METADATA",
       quick_replies: [
         {

@@ -48,6 +48,13 @@ function findOrCreateProcess(senderID){
       });
       //sessions[sessionUser].context.botStatus = true;
     } else {
+      console.log(dbProcess.firstVar);
+      console.log(dbProcess.step);
+      console.log(dbProcess.qOne);
+      console.log(dbProcess.qTwo);
+      console.log(dbProcess.qThree);
+      console.log(dbProcess.qFour);
+      
       fd.firstVar = dbProcess.firstVar;
       fd.step     = dbProcess.step;
       fd.qOne     = dbProcess.qOne;

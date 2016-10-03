@@ -901,15 +901,12 @@ function stepOne(senderID, messageText){
       facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
       facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
       facebook.sendTextMessage(senderID,"API goes here.",fd.db);
+    
+      clearSessionVariables(senderID);
+      clearSessionProcesses(senderID);
+      fd.activeProcess = "pOne";
+      fd.db     = "modelOne";
     }
-  }
-
-  if(fd.step === 6){
-    clearSessionVariables(senderID);
-    clearSessionProcesses(senderID);
-    fd.activeProcess = "pOne";
-    fd.db     = "modelOne";
-    fd.dbStep = true;
   }
 
 }

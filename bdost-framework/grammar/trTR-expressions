@@ -8,6 +8,16 @@
         "hazırım",
         "ok"
       ]
+    },
+    {
+      "expression": "Hayır",
+      "expressionCode": 2,
+      "alias": [
+        "hayir",
+        "yok",
+        "istemiyorum",
+        "sonra"
+      ]
     }
   ]
 }

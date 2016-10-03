@@ -17,6 +17,7 @@ exports.modelPlus	 		= "Yetkili İle Görüş";
 //----------------- Model One -----------------
 exports.MOWelcome  			= "Süper, size uygun telefon modellerini yönlendirebilmek için bazı sorular soracağım. Hazır mısınız?";
 exports.MOCTA               = "Evet";
+exports.MOCTAn              = "Hayır";
 
 exports.MOContinue 			= "Öncelikle bana hangi ilde iş aradığını söyler misin?";
 exports.MOStepOne  			= function(firstVar){

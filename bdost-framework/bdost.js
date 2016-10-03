@@ -854,12 +854,17 @@ function stepOne(senderID, messageText){
 
   if(fd.step === 1 || fd.firstVar === ""){
     fd.firstVar = getExpression(messageText);
-    if(fd.firstVar === "Evet"){
+    if(fd.firstVar === bdostTxt.MOCTA){
       facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-      fd.dbStep = false;
-    }else{
+    }else if(fd.firstVar === bdostTxt.MOCTAn){
+      clearSessionVariables(senderID);
+      clearSessionProcesses(senderID);
+    }
+    else{
       fd.step = 0;
     }
+    
+    fd.dbStep = false;
   }
 
   if(fd.step === 2 && fd.qOne === ""){

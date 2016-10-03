@@ -55,10 +55,10 @@ function findOrCreateProcess(senderID){
       console.log(dbProcess.qTwo);
       console.log(dbProcess.qThree);
       console.log(dbProcess.qFour);
-
+      
       fd.firstVar = dbProcess.firstVar;
-      fd.step     = dbProcess.step;
-      /*fd.qOne     = dbProcess.qOne;
+      /*fd.step     = dbProcess.step;
+      fd.qOne     = dbProcess.qOne;
       fd.qTwo     = dbProcess.qTwo;
       fd.qThree   = dbProcess.qThree;
       fd.qFour    - dbProcess.qFour;*/
@@ -946,7 +946,6 @@ function stepOne(senderID, messageText){
       fd.step = 2;
     }else{
       fd.step = 0;
-      setSearchValue(senderID,fd.firstVar);
     }
     console.log("bumu:"+fd.step);
     setSearchStep(senderID,fd.step);

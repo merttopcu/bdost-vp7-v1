@@ -903,7 +903,7 @@ function flowDiagram(senderID,messageText){
     if(fd.activeProcess){
       fd.step+=1;
       console.log("yoksa bu mu"+fd.step);
-      setSearchStep(senderID,fd.step);
+      //setSearchStep(senderID,fd.step);
     }
   }else{
     fd.pRunAgain = findRequiredModel(messageText,bdostTxt.reRunKeywords);

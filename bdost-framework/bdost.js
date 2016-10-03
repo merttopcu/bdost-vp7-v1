@@ -851,56 +851,48 @@ function stepOne(senderID, messageText){
   if(fd.step === 1 || fd.firstVar === ""){
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === "Evet"){
-      fd.step = 2;
+      facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
     }else{
       fd.step = 0;
     }
   }
 
-  if(fd.step === 2){
-    facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
-  }
-
-  if(fd.step === 3 && fd.qOne === ""){
+  if(fd.step === 2 && fd.qOne === ""){
     fd.qOne = messageText;
-    console.log("questiomOne:" + fd.qOne);
+    console.log("questionOne:" + fd.qOne);
     if(fd.qOne === ""){
-      fd.step = 1;
+      fd.step = 0;
     }else{
-      fd.step = 2;
       facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     }
   }
 
-  if(fd.step === 4 && fd.qTwo === ""){
+  if(fd.step === 3 && fd.qTwo === ""){
     fd.qTwo = messageText;
     console.log("questiomTwo:" + fd.qTwo);
     if(fd.qTwo === ""){
-      fd.step = 2;
+      fd.step = 1;
     }else{
-      fd.step = 3;
       facebook.sendTextMessage(senderID,"3. soru",fd.db);
     }
   }
 
-  if(fd.step === 5 && fd.qThree === ""){
+  if(fd.step === 4 && fd.qThree === ""){
     fd.qTwo = messageText;
     console.log("questiomThree:" + fd.qThree);
     if(fd.qTwo === ""){
-      fd.step = 3;
+      fd.step = 2;
     }else{
-      fd.step = 4;
       facebook.sendTextMessage(senderID,"4. soru?",fd.db);
     }
   }
 
-  if(fd.step === 6 && fd.qTwo === ""){
+  if(fd.step === 5 && fd.qFour === ""){
     fd.qTwo = messageText;
     console.log("questiomFour:" + fd.qTwo);
     if(fd.qTwo === ""){
-      fd.step = 4;
+      fd.step = 3;
     }else{
-      fd.step = 5;
       facebook.sendTextMessage(senderID,"5. soru",fd.db);
     }
   }

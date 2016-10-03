@@ -63,6 +63,8 @@ function receivedPostback(event) {
     }, 10)
   }else if(payload === "PAYLOAD_MODELPLUS"){
      bdost.saveMessage(senderID, null, bdostTxt.modelPlus);
+     bdost.setSearchValue(senderID,"Evet");
+     bdost.setSearchStep(senderID,2);
      setTimeout(function() {
      bdost.flowDiagram(senderID,bdostTxt.modelPlus);
      }, 10)

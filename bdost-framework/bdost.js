@@ -859,11 +859,12 @@ function stepOne(senderID, messageText){
     }else if(fd.firstVar === bdostTxt.MOCTAn){
       clearSessionVariables(senderID);
       clearSessionProcesses(senderID);
+      stepNotRecognized(senderID);
     }
     else{
       fd.step = 0;
     }
-    
+
     fd.dbStep = false;
   }
 

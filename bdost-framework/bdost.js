@@ -898,6 +898,7 @@ function stepOne(senderID, messageText){
       fd.step = 3;
     }else{
       facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
+      fd.step = 6;
     }
   }
 
@@ -906,9 +907,10 @@ function stepOne(senderID, messageText){
     facebook.sendTextMessage(senderID,"API goes here.",fd.db);
 
     clearSessionVariables(senderID);
-    clearSessionProcesses(senderID);
+    
 
     facebook.sendModelOneCTA(senderID,fd.db);
+    fd.step = 0;
   }
 }
 

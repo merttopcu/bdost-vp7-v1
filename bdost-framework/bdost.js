@@ -898,21 +898,18 @@ function stepOne(senderID, messageText){
       fd.step = 3;
     }else{
       facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
+      facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
+      facebook.sendTextMessage(senderID,"API goes here.",fd.db);
       fd.step = 6;
     }
   }
 
-  if(fd.step === 6){
-    facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
-    facebook.sendTextMessage(senderID,"API goes here.",fd.db);
-  }
-
-  if(fd.step === 7 && fd.firstVar === ""){
+  if(fd.step === 6 && fd.firstVar === ""){
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === "Evet"){
       facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
     }else{
-      fd.step = 0;
+      fd.step = 5;
     }
   }
 }

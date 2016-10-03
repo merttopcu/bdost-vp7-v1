@@ -964,6 +964,7 @@ function stepOne(senderID, messageText){
       fd.step = 2;
       facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     }
+     setSearchStep(senderID,fd.step);
      console.log(fd.step);
   }
 
@@ -976,7 +977,8 @@ function stepOne(senderID, messageText){
       fd.step = 3;
       facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     }
-     console.log(fd.step);
+    setSearchStep(senderID,fd.step);
+    console.log(fd.step);
   }
 }
 

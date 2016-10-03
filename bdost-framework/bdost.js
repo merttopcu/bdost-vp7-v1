@@ -906,6 +906,7 @@ function stepOne(senderID, messageText){
       clearSessionProcesses(senderID);
       fd.activeProcess = "pOne";
       fd.db     = "modelOne";
+      facebook.sendModelOneCTA(senderID,fd.db);
     }
   }
 

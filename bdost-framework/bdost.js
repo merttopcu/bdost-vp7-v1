@@ -878,9 +878,9 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 4 && fd.qThree === ""){
-    fd.qTwo = messageText;
+    fd.qThree = messageText;
     console.log("questiomThree:" + fd.qThree);
-    if(fd.qTwo === ""){
+    if(fd.qThree === ""){
       fd.step = 2;
     }else{
       facebook.sendTextMessage(senderID,"4. soru?",fd.db);
@@ -888,8 +888,8 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 5 && fd.qFour === ""){
-    fd.qTwo = messageText;
-    console.log("questiomFour:" + fd.qTwo);
+    fd.qFour = messageText;
+    console.log("questiomFour:" + fd.qFour);
     if(fd.qTwo === ""){
       fd.step = 3;
     }else{

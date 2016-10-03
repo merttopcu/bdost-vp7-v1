@@ -55,13 +55,13 @@ function findOrCreateProcess(senderID){
       console.log(dbProcess.qTwo);
       console.log(dbProcess.qThree);
       console.log(dbProcess.qFour);
-
+      /*
       fd.firstVar = dbProcess.firstVar;
       fd.step     = dbProcess.step;
       fd.qOne     = dbProcess.qOne;
       fd.qTwo     = dbProcess.qTwo;
       fd.qThree   = dbProcess.qThree;
-      fd.qFour    - dbProcess.qFour;
+      fd.qFour    - dbProcess.qFour;*/
     };
   });
 }
@@ -901,7 +901,7 @@ function flowDiagram(senderID,messageText){
 
     //if we are already in process move to the next step.
     if(fd.activeProcess){
-      // /fd.step+=1;
+      fd.step+=1;
       console.log("yoksa bu mu"+fd.step);
       //setSearchStep(senderID,fd.step);
     }

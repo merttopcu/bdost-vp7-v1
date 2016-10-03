@@ -901,7 +901,7 @@ function flowDiagram(senderID,messageText){
 
     //if we are already in process move to the next step.
     if(fd.activeProcess){
-      fd.step+=1;
+      // /fd.step+=1;
       console.log("yoksa bu mu"+fd.step);
       //setSearchStep(senderID,fd.step);
     }

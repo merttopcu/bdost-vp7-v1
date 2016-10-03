@@ -862,7 +862,7 @@ function flowDiagram(senderID,messageText){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
   
-  
+  findOrCreateProcess(senderID);
 
   if(fd.botStatus){
 
@@ -1066,4 +1066,3 @@ exports.stepRunAgain          = stepRunAgain;
 
 exports.setSearchStep         = setSearchStep;
 exports.setSearchValue        = setSearchValue;
-exports.findOrCreateProcess   = findOrCreateProcess;

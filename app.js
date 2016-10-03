@@ -101,8 +101,6 @@ app.post('/webhook', function (req, res) {
           facebook.receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
           
-          bdost.findOrCreateProcess(messagingEvent.sender.id);
-
           //wit.ai
           /*const senderID = messagingEvent.sender.id;
           const sessionId = bdost.findOrCreateSession(senderID);

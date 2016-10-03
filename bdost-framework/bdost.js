@@ -28,7 +28,7 @@ function findOrCreateProcess(senderID){
   var fd              = sessions[sessionUser].context;
 
   var sessionUser = findOrCreateSession(senderID);
-  processesDB.findOne({ 'userId': senderID }, 'botStatus', function (err, dbProcess) {
+  processesDB.findOne({ 'userId': senderID }, function (err, dbProcess) {
     if (err) {
       console.error(err);
     } else if (dbProcess === null){

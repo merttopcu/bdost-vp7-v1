@@ -900,19 +900,11 @@ function stepOne(senderID, messageText){
       facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
       facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
       facebook.sendTextMessage(senderID,"API goes here.",fd.db);
-      fd.step = 6;
+      fd.step = 0;
       fd.firstVar = "";
     }
   }
 
-  if(fd.step === 6 && fd.firstVar === ""){
-    fd.firstVar = getExpression(messageText);
-    if(fd.firstVar === "Evet"){
-      fd.step = 1;
-    }else{
-      fd.step = 5;
-    }
-  }
 }
 
 function stepPlus(senderID, messageText){

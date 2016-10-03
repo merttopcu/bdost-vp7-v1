@@ -229,9 +229,44 @@ function setBotStatus(senderID, botStatus){
   });
 }
 
-function setSearchPreferences(senderID, value){
+function setSearchStep(senderID, value){
   processesDB.update({'userId': senderID}, {$set: {
     step : value
+  }}, function (err, results){
+    if (err) console.error(err);
+  });
+}
+function setSearchValue(senderID, value){
+  processesDB.update({'userId': senderID}, {$set: {
+    firstVar : value
+  }}, function (err, results){
+    if (err) console.error(err);
+  });
+}
+function setSearchOne(senderID, value){
+  processesDB.update({'userId': senderID}, {$set: {
+    qOne : value
+  }}, function (err, results){
+    if (err) console.error(err);
+  });
+}
+function setSearchTwo(senderID, value){
+  processesDB.update({'userId': senderID}, {$set: {
+    qTwo : value
+  }}, function (err, results){
+    if (err) console.error(err);
+  });
+}
+function setSearchThree(senderID, value){
+  processesDB.update({'userId': senderID}, {$set: {
+    qThree : value
+  }}, function (err, results){
+    if (err) console.error(err);
+  });
+}
+function setSearchFour(senderID, value){
+  processesDB.update({'userId': senderID}, {$set: {
+    qFour : value
   }}, function (err, results){
     if (err) console.error(err);
   });
@@ -860,7 +895,7 @@ function flowDiagram(senderID,messageText){
     if(fd.activeProcess){
       fd.step+=1;
       console.log("yoksa bu mu"+fd.step);
-      setSearchPreferences(senderID,fd.step);
+      setSearchStep(senderID,fd.step);
     }
   }else{
     fd.pRunAgain = findRequiredModel(messageText,bdostTxt.reRunKeywords);
@@ -893,29 +928,29 @@ function stepOne(senderID, messageText){
     fd.dbStep = true;
     facebook.sendModelOneCTA(senderID,fd.db);
     console.log(fd.step);
-    setSearchPreferences(senderID,fd.step);
+    setSearchStep(senderID,fd.step);
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
     fd.firstVar = getExpression(messageText);
-    
     if(fd.firstVar === "Evet"){
+      setSearchValue(senderID,fd.firstVar);
       fd.step = 2;
     }else{
       fd.step = 0;
     }
     console.log("bumu:"+fd.step);
-    setSearchPreferences(senderID,fd.step);
+    setSearchStep(senderID,fd.step);
   }
 
   if(fd.step === 2){
     facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
   }
 
-  /*if(fd.step === 3 && fd.variables.questionOne === ""){
-    fd.variables.questionOne = messageText;
-    console.log("questiomOne:" + fd.variables.questionOne);
-    if(fd.variables.quesionOne === ""){
+  if(fd.step === 3 && fd.qOne === ""){
+    fd.qOne = messageText;
+    console.log("questiomOne:" + fd.qOne);
+    if(fd.qOne === ""){
       fd.step = 1;
     }else{
       fd.step = 2;
@@ -924,10 +959,17 @@ function stepOne(senderID, messageText){
      console.log(fd.step);
   }
 
-  if(fd.step === 4 && fd.variables.questionTwo === ""){
-    
-    console.log("bitir");
-  }*/
+  if(fd.step === 4 && fd.qTwo === ""){
+    fd.qTwo = messageText;
+    console.log("questiomOne:" + fd.qTwo);
+    if(fd.qTwo === ""){
+      fd.step = 2;
+    }else{
+      fd.step = 3;
+      facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
+    }
+     console.log(fd.step);
+  }
 }
 
 function stepPlus(senderID, messageText){

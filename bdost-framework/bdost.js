@@ -1063,3 +1063,6 @@ exports.stepGreeting          = stepGreeting;
 exports.stepExit              = stepExit;
 exports.stepNotRecognized     = stepNotRecognized;
 exports.stepRunAgain          = stepRunAgain;
+
+exports.setSearchStep         = setSearchStep;
+exports.setSearchValue        = setSearchValue;

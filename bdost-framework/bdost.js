@@ -851,7 +851,6 @@ function stepOne(senderID, messageText){
   if(fd.step === 1 || fd.firstVar === ""){
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === "Evet"){
-      setSearchValue(senderID,fd.firstVar);
       fd.step = 2;
     }else{
       fd.step = 0;

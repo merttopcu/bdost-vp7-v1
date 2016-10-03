@@ -856,6 +856,7 @@ function stepOne(senderID, messageText){
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === "Evet"){
       facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
+      fd.dbStep = false;
     }else{
       fd.step = 0;
     }
@@ -900,9 +901,15 @@ function stepOne(senderID, messageText){
       facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
       facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
       facebook.sendTextMessage(senderID,"API goes here.",fd.db);
-      fd.step = 0;
-      fd.firstVar = "";
     }
+  }
+
+  if(fd.step === 6){
+    clearSessionVariables(senderID);
+    clearSessionProcesses(senderID);
+    fd.activeProcess = "pOne";
+    fd.db     = "modelOne";
+    fd.dbStep = true;
   }
 
 }

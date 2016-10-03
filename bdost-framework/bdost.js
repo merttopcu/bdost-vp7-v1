@@ -849,7 +849,7 @@ function stepOne(senderID, messageText){
     fd.activeProcess = "pOne";
     fd.db     = "modelOne";
     fd.dbStep = true;
-    facebook.sendModelOneCTA(senderID,fd.db);
+    facebook.sendModelOneCTA(senderID,bdostTxt.MOWelcome,fd.db);
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
@@ -906,7 +906,7 @@ function stepOne(senderID, messageText){
       clearSessionProcesses(senderID);
       fd.activeProcess = "pOne";
       fd.db     = "modelOne";
-      facebook.sendModelOneCTA(senderID,fd.db);
+      facebook.sendModelOneCTA(senderID,bdostTxt.MOEnd,fd.db);
     }
   }
 

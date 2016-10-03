@@ -34,7 +34,7 @@ exports.MOStepSubCont  		= function(firstVar,firstSubVar){
 }
 exports.MOSubContinue 		= "Öncelikle bana hangi ilçede iş aradığını söyler misin?";
 
-exports.MOEnd      			= "Tüm iş ilanları ve başvuru için adres aşağıda. Kariyerinizde başarılar dilerim.";
+exports.MOEnd      			= "Yeniden denemek ister misiniz?";
 exports.MOEndButton         = "Tüm İş İlanları"
 exports.MOFailure  			= "Ozur dilerim ama aramaniz sonuc vermedi. Isterseniz 'İş Arıyorum' yazarak tekrar deneyebilirsiniz.";
 

@@ -318,7 +318,7 @@ function sendLink(recipientId,text,title,url,dbProcess) {
 }
 
 // created by alperen.
-function sendModelOneCTA(recipientId, dbProcess) {
+function sendModelOneCTA(recipientId, message, dbProcess) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -328,7 +328,7 @@ function sendModelOneCTA(recipientId, dbProcess) {
         type: "template",
         payload: {
           template_type: "button",
-          text: bdostTxt.MOWelcome,
+          text: message,
           buttons:[{
             type: "postback",
             title: bdostTxt.MOCTA,

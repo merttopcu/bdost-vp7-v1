@@ -55,9 +55,9 @@ function findOrCreateProcess(senderID){
       console.log(dbProcess.qTwo);
       console.log(dbProcess.qThree);
       console.log(dbProcess.qFour);
-      /*
+      
       fd.firstVar = dbProcess.firstVar;
-      fd.step     = dbProcess.step;
+      /*fd.step     = dbProcess.step;
       fd.qOne     = dbProcess.qOne;
       fd.qTwo     = dbProcess.qTwo;
       fd.qThree   = dbProcess.qThree;

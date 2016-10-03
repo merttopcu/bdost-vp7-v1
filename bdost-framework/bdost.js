@@ -776,7 +776,6 @@ function flowDiagram(senderID,messageText){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
   
-  findOrCreateProcess(senderID);
 
   if(fd.botStatus){
 

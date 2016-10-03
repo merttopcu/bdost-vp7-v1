@@ -879,7 +879,29 @@ function stepOne(senderID, messageText){
       fd.step = 2;
     }else{
       fd.step = 3;
-      facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
+      facebook.sendTextMessage(senderID,"3. soru",fd.db);
+    }
+  }
+
+  if(fd.step === 5 && fd.qThree === ""){
+    fd.qTwo = messageText;
+    console.log("questiomThree:" + fd.qThree);
+    if(fd.qTwo === ""){
+      fd.step = 3;
+    }else{
+      fd.step = 4;
+      facebook.sendTextMessage(senderID,"4. soru?",fd.db);
+    }
+  }
+
+  if(fd.step === 6 && fd.qTwo === ""){
+    fd.qTwo = messageText;
+    console.log("questiomFour:" + fd.qTwo);
+    if(fd.qTwo === ""){
+      fd.step = 4;
+    }else{
+      fd.step = 5;
+      facebook.sendTextMessage(senderID,"5. soru",fd.db);
     }
   }
 }

@@ -901,13 +901,14 @@ function stepOne(senderID, messageText){
       facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
       facebook.sendTextMessage(senderID,"API goes here.",fd.db);
       fd.step = 6;
+      fd.firstVar = "";
     }
   }
 
   if(fd.step === 6 && fd.firstVar === ""){
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === "Evet"){
-      facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
+      fd.step = 1;
     }else{
       fd.step = 5;
     }

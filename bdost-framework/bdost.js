@@ -55,7 +55,7 @@ function findOrCreateProcess(senderID){
       console.log(dbProcess.qTwo);
       console.log(dbProcess.qThree);
       console.log(dbProcess.qFour);
-            
+
       fd.firstVar = dbProcess.firstVar;
       fd.step     = dbProcess.step;
       /*fd.qOne     = dbProcess.qOne;
@@ -903,7 +903,7 @@ function flowDiagram(senderID,messageText){
     if(fd.activeProcess){
       fd.step+=1;
       console.log("yoksa bu mu"+fd.step);
-      //setSearchStep(senderID,fd.step);
+      setSearchStep(senderID,fd.step);
     }
   }else{
     fd.pRunAgain = findRequiredModel(messageText,bdostTxt.reRunKeywords);

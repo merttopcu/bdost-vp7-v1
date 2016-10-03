@@ -757,6 +757,10 @@ function clearSessionVariables(senderID){
   fd.firstSubVar      = "";
   fd.secondVar        = "";
   fd.step             = 0;
+  fd.qOne             = "";
+  fd.qTwo             = "";
+  fd.qThree           = "";
+  fd.qFour            = "";
 }
 function clearSessionProcesses(senderID){
   var sessionUser     = findOrCreateSession(senderID);
@@ -893,8 +897,18 @@ function stepOne(senderID, messageText){
     if(fd.qTwo === ""){
       fd.step = 3;
     }else{
-      facebook.sendTextMessage(senderID,"5. soru",fd.db);
+      facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
     }
+  }
+
+  if(fd.step === 6){
+    facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
+    facebook.sendTextMessage(senderID,"API goes here.",fd.db);
+
+    clearSessionVariables(senderID);
+    clearSessionProcesses(senderID);
+
+    facebook.sendModelOneCTA(senderID,fd.db);
   }
 }
 

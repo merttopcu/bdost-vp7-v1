@@ -905,12 +905,15 @@ function stepOne(senderID, messageText){
   if(fd.step === 6){
     facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
     facebook.sendTextMessage(senderID,"API goes here.",fd.db);
+  }
 
-    clearSessionVariables(senderID);
-    
-
-    facebook.sendModelOneCTA(senderID,fd.db);
-    fd.step = 0;
+  if(fd.step === 7 && fd.firstVar === ""){
+    fd.firstVar = getExpression(messageText);
+    if(fd.firstVar === "Evet"){
+      facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
+    }else{
+      fd.step = 0;
+    }
   }
 }
 

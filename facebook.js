@@ -60,6 +60,7 @@ function receivedPostback(event) {
     bdost.saveMessage(senderID, null, bdostTxt.MOCTA);
     bdost.setSearchValue(senderID,"Evet");
     bdost.setSearchStep(senderID,2);
+    console.log("payload yes ici");
     setTimeout(function() {
       bdost.stepOne(senderID,bdostTxt.MOCTA);
     }, 10)

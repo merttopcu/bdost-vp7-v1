@@ -57,8 +57,8 @@ function findOrCreateProcess(senderID){
       console.log(dbProcess.qFour);
       
       fd.firstVar = dbProcess.firstVar;
-      /*fd.step     = dbProcess.step;
-      fd.qOne     = dbProcess.qOne;
+      fd.step     = dbProcess.step;
+      /*fd.qOne     = dbProcess.qOne;
       fd.qTwo     = dbProcess.qTwo;
       fd.qThree   = dbProcess.qThree;
       fd.qFour    - dbProcess.qFour;*/
@@ -862,7 +862,7 @@ function flowDiagram(senderID,messageText){
   var sessionUser     = findOrCreateSession(senderID);
   var fd              = sessions[sessionUser].context;
   
-  findOrCreateProcess(senderID);
+  
 
   if(fd.botStatus){
 
@@ -1066,3 +1066,4 @@ exports.stepRunAgain          = stepRunAgain;
 
 exports.setSearchStep         = setSearchStep;
 exports.setSearchValue        = setSearchValue;
+exports.findOrCreateProcess   = findOrCreateProcess;

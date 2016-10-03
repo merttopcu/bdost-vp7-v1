@@ -23,49 +23,6 @@ var db            = mongoose.connection,
 
 
 // database functions
-function findOrCreateProcess(senderID){
-  var sessionUser     = findOrCreateSession(senderID);
-  var fd              = sessions[sessionUser].context;
-
-  var sessionUser = findOrCreateSession(senderID);
-  processesDB.findOne({ 'userId': senderID }, function (err, dbProcess) {
-    if (err) {
-      console.error(err);
-    } else if (dbProcess === null){
-      var dbProcess = new processesDB({
-        userId: senderID,
-        timestamp: new Date(),
-        botStatus: true,
-        firstVar : "",
-        step: 0,
-        qOne : "",
-        qTwo : "",
-        qThree : "",
-        qFour : ""
-      });
-      dbProcess.save(function (err) {
-        if (err) console.error(err);
-      });
-      //sessions[sessionUser].context.botStatus = true;
-    } else {
-      console.log(dbProcess);
-      console.log(dbProcess.firstVar);
-      console.log(dbProcess.step);
-      console.log(dbProcess.qOne);
-      console.log(dbProcess.qTwo);
-      console.log(dbProcess.qThree);
-      console.log(dbProcess.qFour);
-
-      fd.firstVar = dbProcess.firstVar;
-      /*fd.step     = dbProcess.step;
-      fd.qOne     = dbProcess.qOne;
-      fd.qTwo     = dbProcess.qTwo;
-      fd.qThree   = dbProcess.qThree;
-      fd.qFour    - dbProcess.qFour;*/
-    };
-  });
-}
-
 function findOrCreateUser(senderID, user){
 
   var firstName = JSON.parse(user).first_name,
@@ -233,49 +190,6 @@ function saveMessage(senderID, recipientId, message, dbProcess){
 
 function setBotStatus(senderID, botStatus){
   processesDB.update({'userId': senderID}, {$set: {botStatus:botStatus}}, function (err, results){
-    if (err) console.error(err);
-  });
-}
-
-function setSearchStep(senderID, value){
-  processesDB.update({'userId': senderID}, {$set: {
-    step : value
-  }}, function (err, results){
-    if (err) console.error(err);
-  });
-}
-function setSearchValue(senderID, value){
-  processesDB.update({'userId': senderID}, {$set: {
-    firstVar : value
-  }}, function (err, results){
-    if (err) console.error(err);
-  });
-}
-function setSearchOne(senderID, value){
-  processesDB.update({'userId': senderID}, {$set: {
-    qOne : value
-  }}, function (err, results){
-    if (err) console.error(err);
-  });
-}
-function setSearchTwo(senderID, value){
-  processesDB.update({'userId': senderID}, {$set: {
-    qTwo : value
-  }}, function (err, results){
-    if (err) console.error(err);
-  });
-}
-function setSearchThree(senderID, value){
-  processesDB.update({'userId': senderID}, {$set: {
-    qThree : value
-  }}, function (err, results){
-    if (err) console.error(err);
-  });
-}
-function setSearchFour(senderID, value){
-  processesDB.update({'userId': senderID}, {$set: {
-    qFour : value
-  }}, function (err, results){
     if (err) console.error(err);
   });
 }
@@ -902,8 +816,6 @@ function flowDiagram(senderID,messageText){
     //if we are already in process move to the next step.
     if(fd.activeProcess){
       fd.step+=1;
-      console.log("yoksa bu mu"+fd.step);
-      //setSearchStep(senderID,fd.step);
     }
   }else{
     fd.pRunAgain = findRequiredModel(messageText,bdostTxt.reRunKeywords);
@@ -935,8 +847,6 @@ function stepOne(senderID, messageText){
     fd.db     = "modelOne";
     fd.dbStep = true;
     facebook.sendModelOneCTA(senderID,fd.db);
-    console.log(fd.step);
-    setSearchStep(senderID,fd.step);
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
@@ -947,8 +857,6 @@ function stepOne(senderID, messageText){
     }else{
       fd.step = 0;
     }
-    console.log("bumu:"+fd.step);
-    setSearchStep(senderID,fd.step);
   }
 
   if(fd.step === 2){
@@ -964,21 +872,17 @@ function stepOne(senderID, messageText){
       fd.step = 2;
       facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     }
-     setSearchStep(senderID,fd.step);
-     console.log(fd.step);
   }
 
   if(fd.step === 4 && fd.qTwo === ""){
     fd.qTwo = messageText;
-    console.log("questiomOne:" + fd.qTwo);
+    console.log("questiomTwo:" + fd.qTwo);
     if(fd.qTwo === ""){
       fd.step = 2;
     }else{
       fd.step = 3;
       facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
     }
-    setSearchStep(senderID,fd.step);
-    console.log(fd.step);
   }
 }
 
@@ -1065,6 +969,3 @@ exports.stepGreeting          = stepGreeting;
 exports.stepExit              = stepExit;
 exports.stepNotRecognized     = stepNotRecognized;
 exports.stepRunAgain          = stepRunAgain;
-
-exports.setSearchStep         = setSearchStep;
-exports.setSearchValue        = setSearchValue;

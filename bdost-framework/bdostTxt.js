@@ -19,24 +19,8 @@ exports.MOWelcome  			= "Süper, size uygun telefon modellerini yönlendirebilme
 exports.MOCTA               = "Evet";
 exports.MOCTAn              = "Hayır";
 
-exports.MOContinue 			= "Öncelikle bana hangi ilde iş aradığını söyler misin?";
-exports.MOStepOne  			= function(firstVar){
-	return "Tamam, "+ firstVar +" için iş arıyorsun. Peki ilgilendiğin mesleği yazar mısın?";
-}
-exports.MOStepTwo  			= function(firstVar,secondVar){
-	return firstVar +", "+ secondVar +" için ilk 5 ilana bakıyorum.";
-}
-
-exports.MOStepSubOne  		= function(firstVar){
-	return "Tamam, "+ firstVar +" için iş arıyorsun. Peki hangi ilçede iş aradığını söyler misin?";
-}
-exports.MOStepSubCont  		= function(firstVar,firstSubVar){
-	return "Tamam, "+ firstSubVar +", " + firstVar +" için iş arıyorsun. Peki ilgilendiğin mesleği yazar mısın?";
-}
-exports.MOSubContinue 		= "Öncelikle bana hangi ilçede iş aradığını söyler misin?";
-
 exports.MOEnd      			= "Yeniden denemek ister misiniz?";
-exports.MOEndButton         = "Tüm İş İlanları"
+
 exports.MOFailure  			= "Ozur dilerim ama aramaniz sonuc vermedi. Isterseniz 'İş Arıyorum' yazarak tekrar deneyebilirsiniz.";
 
 //----------------- Model Plus -----------------

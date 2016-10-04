@@ -471,7 +471,7 @@ function stepOne(senderID, messageText){
     if(fd.qOne === ""){
       fd.step = 0;
     }else{
-      facebook.sendTextMessage(senderID,"Sizin için en önemli özellik nedir?",fd.db);
+      ffacebook.sendQuestion(senderID,2,fd.db);
     }
   }
 
@@ -481,7 +481,7 @@ function stepOne(senderID, messageText){
     if(fd.qTwo === ""){
       fd.step = 1;
     }else{
-      facebook.sendTextMessage(senderID,"3. soru",fd.db);
+      facebook.sendQuestion(senderID,3,fd.db);
     }
   }
 
@@ -491,7 +491,7 @@ function stepOne(senderID, messageText){
     if(fd.qThree === ""){
       fd.step = 2;
     }else{
-      facebook.sendTextMessage(senderID,"4. soru?",fd.db);
+      facebook.sendQuestion(senderID,4,fd.db);
     }
   }
 

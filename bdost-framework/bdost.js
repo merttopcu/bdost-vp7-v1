@@ -912,7 +912,11 @@ function stepOne(senderID, messageText){
       clearSessionProcesses(senderID);
       fd.activeProcess = "pOne";
       fd.db     = "modelOne";
-      facebook.sendModelOneCTA(senderID,bdostTxt.MOEnd,fd.db);
+
+      setTimeout(function() {
+        facebook.sendModelOneCTA(senderID,bdostTxt.MOEnd,fd.db);
+      }, 3000)
+      
     }
   }
 

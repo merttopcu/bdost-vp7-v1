@@ -904,9 +904,14 @@ function stepOne(senderID, messageText){
     if(fd.qTwo === ""){
       fd.step = 3;
     }else{
+
       facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
-      facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
-      facebook.sendTextMessage(senderID,"API goes here.",fd.db);
+      setTimeout(function() {
+        facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
+      }, 1000)
+      setTimeout(function() {
+        facebook.sendTextMessage(senderID,"API goes here.",fd.db);
+      }, 2000)
     
       clearSessionVariables(senderID);
       clearSessionProcesses(senderID);

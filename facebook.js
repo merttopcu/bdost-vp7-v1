@@ -339,7 +339,7 @@ function sendModelOneCTA(recipientId, message, dbProcess) {
 function sendQuestion(recipientId, questionCode, dbProcess) {
 
   var qFile = JSON.parse(fs.readFileSync(__dirname + "/bdost-framework" + bdostTxt.questions));
-  var q = qFile.questions[questionCode-1].question;
+  var q = qFile.questions[questionCode-1];
 
   var question = q.question;
   var answers = q.answers;

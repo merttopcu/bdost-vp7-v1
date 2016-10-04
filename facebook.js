@@ -830,4 +830,5 @@ exports.sendButtonMessage             = sendButtonMessage;
 exports.sendGenericMessage            = sendGenericMessage;
 exports.sendRunAgainMessage           = sendRunAgainMessage;
 exports.sendLink                      = sendLink;
-exports.sendModelOneCTA               = sendModelOneCTA
+exports.sendModelOneCTA               = sendModelOneCTA;
+exports.sendQuestion                  = sendQuestion;

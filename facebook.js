@@ -376,7 +376,7 @@ function sendQuestion(recipientId, questionCode, dbProcess) {
     }
   };
   
-  bdost.saveMessage(null, recipientId, message, dbProcess);
+  bdost.saveMessage(null, recipientId, question, dbProcess);
   //botAnalytics.track(recipientId,messageData.message,new Date().getTime());
   callSendAPI(messageData);
 }

@@ -46,7 +46,6 @@ function receivedPostback(event) {
   // let them know it was successful
   
   // added by alperen
-  bdost.setBotStatus(senderID,true);
   var sessionUser = bdost.findOrCreateSession(senderID);
   var fd          = bdost.sessions[sessionUser].context;
   fd.botStatus    = true;
@@ -128,7 +127,6 @@ function receivedMessage(event) {
     var sessionUser = bdost.findOrCreateSession(senderID);
 
     if(quickReplyPayload){
-      bdost.setBotStatus(senderID, true);
       bdost.sessions[sessionUser].context.botStatus = true;
     }
    

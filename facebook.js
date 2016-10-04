@@ -2,6 +2,7 @@
 
 const crypto      = require('crypto'),
       request     = require('request'),
+      fs          = require('fs'),
       config      = require('config');
 
 var bdost         = require('./bdost-framework/bdost.js'),

@@ -18,7 +18,6 @@ var db            = mongoose.connection,
     userDB        = require('../models/user.js'),
     messageDB 	  = require('../models/message.js'),
     conversationDB= require('../models/conversation.js'),
-    processesDB	  = require('../models/processes.js'),
     authorizedDB  = require('../models/authorizedRequests.js');    
 
 
@@ -193,10 +192,6 @@ function pingAuthorized(senderID, message, fullName){
   authorized.save(function (err) {
     if (err) console.error(err);
   });
-}
-
-function randomIntInc (low, high) {
-    return Math.floor(Math.random() * (high - low + 1) + low);
 }
 
 // bdost-framework functions

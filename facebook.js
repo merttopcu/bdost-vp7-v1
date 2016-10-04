@@ -55,11 +55,6 @@ function receivedPostback(event) {
     setTimeout(function() {
       bdost.flowDiagram(senderID,bdostTxt.modelOne);
     }, 10)
-  }else if(payload === "PAYLOAD_MODELONE_YES"){
-    bdost.saveMessage(senderID, null, bdostTxt.MOCTA);
-    setTimeout(function() {
-      bdost.flowDiagram(senderID,bdostTxt.modelOne);
-    }, 10)
   }else if(payload === "PAYLOAD_MODELPLUS"){
      bdost.saveMessage(senderID, null, bdostTxt.modelPlus);
      setTimeout(function() {
@@ -338,6 +333,54 @@ function sendModelOneCTA(recipientId, message, dbProcess) {
   //botAnalytics.track(recipientId,messageData.message,new Date().getTime());
   callSendAPI(messageData);
 }
+
+// created by alperen.
+function sendQuestion(recipientId, questionCode, dbProcess) {
+
+  var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
+  var q = qFile.questions[questionCode-1].question;
+
+  var question = q.question;
+  var answers = q.answers;
+
+
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      text: question,
+      metadata: "DEVELOPER_DEFINED_METADATA",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title": answers[0],
+          "payload":"PAYLOAD_MODELONE"
+        },
+        {
+          "content_type":"text",
+          "title": answers[1],
+          "payload":"PAYLOAD_MODELONE"
+        },
+        {
+          "content_type":"text",
+          "title": answers[2],
+          "payload":"PAYLOAD_MODELONE"
+        },
+        {
+          "content_type":"text",
+          "title": answers[3],
+          "payload":"PAYLOAD_MODELONE"
+        }
+      ]
+    }
+  };
+  
+  bdost.saveMessage(null, recipientId, message, dbProcess);
+  //botAnalytics.track(recipientId,messageData.message,new Date().getTime());
+  callSendAPI(messageData);
+}
+
 
 // created by alperen.
 function addPersistentMenu(){

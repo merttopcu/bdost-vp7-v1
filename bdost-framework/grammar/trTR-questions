@@ -1,0 +1,44 @@
+{
+  "questions": [
+    {
+      "question": "Telefonu ne için kullanmayı seviyorsunuz?",
+      "questionCode": 1,
+      "answers": [
+        "Oyun",
+        "İnternet",
+        "Navigasyon",
+        "İş"
+      ]
+    },
+    {
+      "question": "Sizin için en önemli özellik nedir?",
+      "questionCode": 2,
+      "answers": [
+        "Kamera",
+        "Ekran",
+        "Pil",
+        "Hız"
+      ]
+    },
+    {
+      "question": "Kameranın kaç MP olması uygundur?",
+      "questionCode": 3,
+      "answers": [
+        "3",
+        "5",
+        "9",
+        "12"
+      ]
+    },
+    {
+      "question": "Fiyat aralığınız nedir?",
+      "questionCode": 4,
+      "answers": [
+        "0-500",
+        "500-1000",
+        "1000-2000",
+        "2000+"
+      ]
+    }
+  ]
+}

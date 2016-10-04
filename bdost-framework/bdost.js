@@ -452,7 +452,7 @@ function stepOne(senderID, messageText){
   if(fd.step === 1 || fd.firstVar === ""){
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === bdostTxt.MOCTA){
-      facebook.sendTextMessage(senderID,"Telefonu ne için kullanmayı seviyorsunuz?",fd.db);
+      facebook.sendQuestion(senderID,1,fd.db);
     }else if(fd.firstVar === bdostTxt.MOCTAn){
       clearSessionVariables(senderID);
       clearSessionProcesses(senderID);

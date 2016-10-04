@@ -53,3 +53,4 @@ exports.exitKeywords	  	= "/grammar/trTR-thanking";
 exports.reRunKeywords    	= "/grammar/trTR-run";
 
 exports.expressions 		= "/grammar/trTR-expressions";
+exports.questions	 		= "/grammar/trTR-questions";

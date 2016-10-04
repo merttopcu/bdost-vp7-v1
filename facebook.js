@@ -176,7 +176,7 @@ function sendQuickReply(recipientId, username, dbProcess) {
       ]
     }
   };
-  bdost.saveMessage(null, recipientId, messageData.message.text, dbProcess);
+  bdost.saveMessage(null, recipientId, username, dbProcess);
   //botAnalytics.track(recipientId,messageData.message,new Date().getTime());
   callSendAPI(messageData);
 }
@@ -324,22 +324,19 @@ function sendModelOneCTA(recipientId, message, dbProcess) {
       id: recipientId
     },
     message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "button",
-          text: message,
-          buttons:[{
-            type: "postback",
-            title: bdostTxt.MOCTA,
-            payload: "PAYLOAD_MODELONE_YES"
-          }]
+      text: message,
+      metadata: "DEVELOPER_DEFINED_METADATA",
+      quick_replies: [
+        {
+          "content_type":"text",
+          "title": bdostTxt.MOCTA,
+          "payload":"PAYLOAD_MODELONE"
         }
-      }
+      ]
     }
-  };  
+  };
   
-  bdost.saveMessage(null, recipientId, messageData.message.attachment.payload.text, dbProcess);
+  bdost.saveMessage(null, recipientId, message, dbProcess);
   //botAnalytics.track(recipientId,messageData.message,new Date().getTime());
   callSendAPI(messageData);
 }

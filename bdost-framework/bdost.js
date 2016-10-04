@@ -471,7 +471,7 @@ function stepOne(senderID, messageText){
     if(fd.qOne === ""){
       fd.step = 0;
     }else{
-      ffacebook.sendQuestion(senderID,2,fd.db);
+      facebook.sendQuestion(senderID,2,fd.db);
     }
   }
 

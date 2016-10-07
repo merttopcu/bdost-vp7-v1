@@ -492,7 +492,6 @@ function stepOne(senderID, messageText){
     }else{
       facebook.sendQuestion(senderID,2,fd.db);
     }
-
   }
 
   if(fd.step === 3 && fd.qTwo === ""){
@@ -541,6 +540,7 @@ function stepOne(senderID, messageText){
         clearSessionProcesses(senderID);
         fd.activeProcess = "pOne";
         fd.db     = "modelOne";
+        fd.step = 0;
       }, 3000)
       
     }

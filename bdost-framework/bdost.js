@@ -485,11 +485,11 @@ function stepOne(senderID, messageText){
     console.log("questionOne:" + fd.qOne);
 
     if(fd.qOne === ""){
-      fd.step = 0;
+      fd.step = 1;
     }else{
       facebook.sendQuestion(senderID,2,fd.db);
     }
-    
+
   }
 
   if(fd.step === 3 && fd.qTwo === ""){

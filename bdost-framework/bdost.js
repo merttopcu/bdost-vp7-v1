@@ -253,9 +253,9 @@ function getAnswer(message,questionCode){
   var answers = q.answers;
   var checkFound = false;
 
-  for(var value in answers){
-    console.log("value:"+value+" keyword:"+keyword);
-    if(keyword.toString().indexOf(manuelLowerCase(value)) >= 0){
+  for(var i in answers){
+    console.log("value:"+i+" keyword:"+keyword);
+    if(keyword.toString().indexOf(manuelLowerCase(answers[i])) >= 0){
       checkFound = true;
     }
   }

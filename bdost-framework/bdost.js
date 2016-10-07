@@ -244,6 +244,23 @@ function findRequiredModel(message,file){
   return checkFound;
 }
 
+function getAnswer(message,questionCode){
+  var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
+  var q = qFile.questions[questionCode-1];
+
+  var keyword = manuelLowerCase(message);
+  var answers = q.answers;
+  var checkFound = false;
+
+  for(var value in answers){
+    if(keyword.toString().indexOf(manuelLowerCase(value)) >= 0){
+      checkFound = true;
+    }
+  }
+
+  return checkFound;
+}
+
 function manuelLowerCase(text){
   var letters = { "İ": "i", "I": "ı", "Ş": "ş", "Ğ": "ğ", "Ü": "ü", "Ö": "ö", "Ç": "ç" };
   // manuel toLowerCase
@@ -429,7 +446,6 @@ function flowDiagram(senderID,messageText){
       //otherwise bot is off.
     }
   }
-  
 }
 
 // flow functions
@@ -461,13 +477,19 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 2 && fd.qOne === ""){
-    fd.qOne = messageText;
+
+    if(getAnswer(messageText,1)){
+      fd.qOne = messageText;
+    }
+
     console.log("questionOne:" + fd.qOne);
+
     if(fd.qOne === ""){
       fd.step = 0;
     }else{
       facebook.sendQuestion(senderID,2,fd.db);
     }
+    
   }
 
   if(fd.step === 3 && fd.qTwo === ""){
@@ -516,7 +538,6 @@ function stepOne(senderID, messageText){
       
     }
   }
-
 }
 
 function stepPlus(senderID, messageText){

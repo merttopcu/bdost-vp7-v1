@@ -244,8 +244,11 @@ function findRequiredModel(message,file){
   return checkFound;
 }
 
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function getAnswer(message,questionCode){
-  console.log("getAnswer ici");
   var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
   var q = qFile.questions[questionCode-1];
 
@@ -254,12 +257,17 @@ function getAnswer(message,questionCode){
   var checkFound = false;
 
   for(var i in answers){
-    console.log("value:"+i+" keyword:"+keyword);
-    if(keyword.toString().indexOf(manuelLowerCase(answers[i])) >= 0){
-      checkFound = true;
+
+    if(isNumeric(answers[i]) && isNumeric(keyword)){
+      if(answers[i])
+
+      
+    }else{
+      if(keyword.toString().indexOf(manuelLowerCase(answers[i])) >= 0){
+        checkFound = true;
+      }
     }
   }
-  console.log("checkFound:"+checkFound);
   return checkFound;
 }
 
@@ -463,19 +471,15 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
-    console.log("step 1deyim");
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === bdostTxt.MOCTA){
       facebook.sendQuestion(senderID,1,fd.db);
-      console.log("step 1deyim firsvar Evet");
     }else if(fd.firstVar === bdostTxt.MOCTAn){
-      console.log("step 1deyim firstvar Hayir");
       clearSessionVariables(senderID);
       clearSessionProcesses(senderID);
       stepNotRecognized(senderID);
     }
     else{
-      console.log("step 1deyim firstVar null");
       fd.step = 0;
     }
 
@@ -514,7 +518,7 @@ function stepOne(senderID, messageText){
 
   if(fd.step === 4 && fd.qThree === ""){
     fd.qThree = messageText;
-    console.log("questiomThree:" + fd.qThree);
+
     if(fd.qThree === ""){
       fd.step = 2;
     }else{
@@ -529,12 +533,13 @@ function stepOne(senderID, messageText){
       fd.step = 3;
     }else{
 
-      facebook.sendTextMessage(senderID,"Tüm seçimlerinize göre size uygun telefonları inceliyorum",fd.db);
+      facebook.sendTextMessage(senderID,bdostTxt.MOResult,fd.db);
       setTimeout(function() {
-        facebook.sendTextMessage(senderID,"Size uygun telefonları aşağıda listeliyorum",fd.db);
+        facebook.sendTextMessage(senderID,bdostTxt.MOSearchMessage,fd.db);
       }, 1000)
       setTimeout(function() {
         facebook.sendTextMessage(senderID,"API goes here.",fd.db);
+        facebook.sendTextMessage(senderID,"a1:"+fd.qOne+" a2:"+fd.qTwo+" a3:"+fd.qThree+" a4:"+fd.qFour);
       }, 2000)
     
       clearSessionVariables(senderID);

@@ -20,7 +20,8 @@ exports.MOCTA               = "Evet";
 exports.MOCTAn              = "Hayır";
 
 exports.MOEnd      			= "Yeniden denemek ister misiniz?";
-
+exports.MOResult            = "Tüm seçimlerinize göre size uygun telefonları inceliyorum.";
+exports.MOSearchMessage     = "Size uygun telefonları aşağıda listeliyorum.";
 exports.MOFailure  			= "Ozur dilerim ama aramaniz sonuc vermedi. Isterseniz 'İş Arıyorum' yazarak tekrar deneyebilirsiniz.";
 
 //----------------- Model Plus -----------------

@@ -245,6 +245,7 @@ function findRequiredModel(message,file){
 }
 
 function getAnswer(message,questionCode){
+  console.log("getAnswer ici");
   var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
   var q = qFile.questions[questionCode-1];
 
@@ -253,11 +254,12 @@ function getAnswer(message,questionCode){
   var checkFound = false;
 
   for(var value in answers){
+    console.log("value:"+value+" keyword:"+keyword);
     if(keyword.toString().indexOf(manuelLowerCase(value)) >= 0){
       checkFound = true;
     }
   }
-
+  console.log("checkFound:"checkFound);
   return checkFound;
 }
 

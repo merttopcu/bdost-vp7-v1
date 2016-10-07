@@ -485,7 +485,8 @@ function stepOne(senderID, messageText){
     console.log("questionOne:" + fd.qOne);
 
     if(fd.qOne === ""){
-      fd.step = 1;
+      fd.step = 0;
+      console.log("anlamadim");
     }else{
       facebook.sendQuestion(senderID,2,fd.db);
     }

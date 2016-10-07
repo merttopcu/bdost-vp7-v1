@@ -486,7 +486,7 @@ function stepOne(senderID, messageText){
 
     if(fd.qOne === ""){
       fd.step = 0;
-      console.log("anlamadim");
+      facebook.sendTextMessage(senderID,"Cevabi anlamadim.");
     }else{
       facebook.sendQuestion(senderID,2,fd.db);
     }

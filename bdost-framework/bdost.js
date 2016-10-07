@@ -484,12 +484,12 @@ function stepOne(senderID, messageText){
 
   if(fd.step === 2 && fd.qOne === ""){
 
+    //check if answer is valid
     if(getAnswer(messageText,1)){
       fd.qOne = messageText;
     }
 
     if(fd.qOne === ""){
-      fd.firstVar = bdostTxt.MOCTA;
       fd.step = 1;
       facebook.sendQuestion(senderID,1,fd.db);
     }else{
@@ -499,10 +499,14 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 3 && fd.qTwo === ""){
-    fd.qTwo = messageText;
-    console.log("questiomTwo:" + fd.qTwo);
+
+    if(getAnswer(messageText,2)){
+      fd.qTwo = messageText;
+    }
+    
     if(fd.qTwo === ""){
-      fd.step = 1;
+      fd.step = 2;
+      facebook.sendQuestion(senderID,2,fd.db);
     }else{
       facebook.sendQuestion(senderID,3,fd.db);
     }

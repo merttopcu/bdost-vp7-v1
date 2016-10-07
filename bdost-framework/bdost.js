@@ -535,13 +535,12 @@ function stepOne(senderID, messageText){
         facebook.sendTextMessage(senderID,"a1:"+fd.qOne+" a2:"+fd.qTwo+" a3:"+fd.qThree+" a4:"+fd.qFour);
       }, 2000)
     
-      clearSessionVariables(senderID);
-      clearSessionProcesses(senderID);
-      fd.activeProcess = "pOne";
-      fd.db     = "modelOne";
-
       setTimeout(function() {
         facebook.sendModelOneCTA(senderID,bdostTxt.MOEnd,fd.db);
+        clearSessionVariables(senderID);
+        clearSessionProcesses(senderID);
+        fd.activeProcess = "pOne";
+        fd.db     = "modelOne";
       }, 3000)
       
     }

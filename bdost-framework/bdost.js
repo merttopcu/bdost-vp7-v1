@@ -259,7 +259,7 @@ function getAnswer(message,questionCode){
       checkFound = true;
     }
   }
-  console.log("checkFound:"checkFound);
+  console.log("checkFound:"+checkFound);
   return checkFound;
 }
 

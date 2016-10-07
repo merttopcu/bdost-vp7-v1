@@ -257,15 +257,8 @@ function getAnswer(message,questionCode){
   var checkFound = false;
 
   for(var i in answers){
-
-    if(isNumeric(answers[i]) && isNumeric(keyword)){
-      if(answers[i])
-
-      
-    }else{
-      if(keyword.toString().indexOf(manuelLowerCase(answers[i])) >= 0){
-        checkFound = true;
-      }
+    if(keyword.toString().indexOf(manuelLowerCase(answers[i])) >= 0){
+      checkFound = true;
     }
   }
   return checkFound;

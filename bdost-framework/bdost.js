@@ -464,7 +464,7 @@ function stepOne(senderID, messageText){
 
   if(fd.step === 1 || fd.firstVar === ""){
     console.log("step 1deyim");
-    
+    fd.firstVar = getExpression(messageText);
     if(fd.firstVar === bdostTxt.MOCTA){
       facebook.sendQuestion(senderID,1,fd.db);
       console.log("step 1deyim firsvar Evet");
@@ -475,7 +475,6 @@ function stepOne(senderID, messageText){
       stepNotRecognized(senderID);
     }
     else{
-      fd.firstVar = getExpression(messageText);
       console.log("step 1deyim firstVar null");
       fd.step = 0;
     }
@@ -491,7 +490,7 @@ function stepOne(senderID, messageText){
 
     if(fd.qOne === ""){
       fd.firstVar = bdostTxt.MOCTA;
-      fd.step = 0;
+      fd.step = 1;
       facebook.sendQuestion(senderID,1,fd.db);
     }else{
       facebook.sendQuestion(senderID,2,fd.db);

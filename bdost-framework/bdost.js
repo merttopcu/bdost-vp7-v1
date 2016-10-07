@@ -540,7 +540,7 @@ function stepOne(senderID, messageText){
         clearSessionProcesses(senderID);
         fd.activeProcess = "pOne";
         fd.db     = "modelOne";
-        fd.step = 0;
+        fd.step   = 0;
       }, 3000)
       
     }

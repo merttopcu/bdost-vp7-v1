@@ -476,7 +476,7 @@ function stepOne(senderID, messageText){
       console.log("step 1deyim firstVar null");
       fd.step = 0;
     }
-    
+
     fd.dbStep = false;
   }
 
@@ -487,6 +487,7 @@ function stepOne(senderID, messageText){
     }
 
     if(fd.qOne === ""){
+      fd.firstVar = bdostTxt.MOCTA;
       fd.step = 0;
       facebook.sendQuestion(senderID,1,fd.db);
     }else{

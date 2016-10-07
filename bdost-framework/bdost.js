@@ -461,18 +461,22 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 1 || fd.firstVar === ""){
+    console.log("step 1deyim");
     fd.firstVar = getExpression(messageText);
     if(fd.firstVar === bdostTxt.MOCTA){
       facebook.sendQuestion(senderID,1,fd.db);
+      console.log("step 1deyim firsvar Evet");
     }else if(fd.firstVar === bdostTxt.MOCTAn){
+      console.log("step 1deyim firstvar Hayir");
       clearSessionVariables(senderID);
       clearSessionProcesses(senderID);
       stepNotRecognized(senderID);
     }
     else{
+      console.log("step 1deyim firstVar null");
       fd.step = 0;
     }
-
+    
     fd.dbStep = false;
   }
 
@@ -483,7 +487,7 @@ function stepOne(senderID, messageText){
     }
 
     if(fd.qOne === ""){
-      fd.step = 1;
+      fd.step = 0;
       facebook.sendQuestion(senderID,1,fd.db);
     }else{
       facebook.sendQuestion(senderID,2,fd.db);

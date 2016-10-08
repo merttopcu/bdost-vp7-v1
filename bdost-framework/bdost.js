@@ -248,6 +248,20 @@ function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
+function closestNumber(questionCode, closestTo){
+  var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
+  var q = qFile.questions[questionCode-1];
+  var answers = q.answers;
+
+  var closest = Math.max.apply(null, answers); //Get the highest number in arr in case it match nothing.
+
+  for(var i = 0; i < answers.length; i++){ //Loop the array
+    if(answers[i] >= closestTo && answers[i] < closest) closest = answers[i]; //Check if it's higher than your number, but lower than your closest value
+  }
+
+  return closest; // return the value
+}
+
 function getAnswer(message,questionCode){
   var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
   var q = qFile.questions[questionCode-1];
@@ -509,10 +523,17 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 4 && fd.qThree === ""){
-    fd.qThree = messageText;
+
+    if(isNumeric(messageText)){
+      fd.qThree = closest(messageText)
+    }else{
+      if(getAnswer(messageText,3)){
+        fd.qThree = messageText;
+      }
+    }
 
     if(fd.qThree === ""){
-      fd.step = 2;
+      fd.step = 3;
     }else{
       facebook.sendQuestion(senderID,4,fd.db);
     }
@@ -520,7 +541,6 @@ function stepOne(senderID, messageText){
 
   if(fd.step === 5 && fd.qFour === ""){
     fd.qFour = messageText;
-    console.log("questiomFour:" + fd.qFour);
     if(fd.qTwo === ""){
       fd.step = 3;
     }else{

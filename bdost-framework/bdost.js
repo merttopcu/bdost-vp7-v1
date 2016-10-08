@@ -254,9 +254,7 @@ function closestNumber(questionCode, closestTo){
   var q = qFile.questions[questionCode-1];
   var answers = q.answers;
 
-
   var closest = Math.max.apply(null, answers); //Get the highest number in answers in case it match nothing.
-  console.log("closest value="+closest);
 
   for(var i = 0; i < answers.length; i++){ //Loop the array
     if(answers[i] >= closestTo && answers[i] < closest){
@@ -264,7 +262,6 @@ function closestNumber(questionCode, closestTo){
     }
   }
 
-  console.log("returned value="+closest);
   return closest; // return the value
 }
 function getAnswer(message,questionCode){
@@ -292,17 +289,14 @@ function priceRange(message,questionCode){
 
   for(var i in answers){
     var arr = answers[i].split('-');
-    console.log(arr);
     
     if(arr[0] && arr[1]){
       console.log("arr 0 ve 1 var.");
       if(message >= parseInt(arr[0]) && message <= parseInt(arr[1])){
-        console.log("karsilastirdim.");
         result = answers[i];
       }
     }else{
       if(!result){
-        console.log(answers[i] + "karsilastirmadim.")
         result = answers[i];
       }
     }
@@ -574,6 +568,7 @@ function stepOne(senderID, messageText){
     if(getAnswer(messageText,4)){
       fd.qFour = messageText;
     }else{
+      messageText = messageText.replace(/\D/g,'');
       fd.qFour = priceRange(messageText,4);
     }
     

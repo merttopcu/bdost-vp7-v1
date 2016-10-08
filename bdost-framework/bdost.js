@@ -525,7 +525,7 @@ function stepOne(senderID, messageText){
   if(fd.step === 4 && fd.qThree === ""){
 
     if(isNumeric(messageText)){
-      fd.qThree = closestNumber(messageText)
+      fd.qThree = closestNumber(3,messageText)
     }else{
       if(getAnswer(messageText,3)){
         fd.qThree = messageText;

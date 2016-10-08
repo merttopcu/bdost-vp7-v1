@@ -554,7 +554,11 @@ function stepOne(senderID, messageText){
     //strip all non-numeric
     messageText = messageText.replace(/\D/g,'');
     
-    fd.qThree = closestNumber(3,messageText)
+    if(messageText){
+      fd.qThree = closestNumber(3,messageText)
+    }else{
+      fd.qThree = "";
+    }
 
     if(fd.qThree === ""){
       fd.step = 3;
@@ -569,7 +573,12 @@ function stepOne(senderID, messageText){
       fd.qFour = messageText;
     }else{
       messageText = messageText.replace(/\D/g,'');
-      fd.qFour = priceRange(messageText,4);
+
+      if(messageText){
+        fd.qFour = priceRange(messageText,4);
+      }else{
+        fd.qFour = "";
+      }
     }
     
     if(fd.qFour === ""){

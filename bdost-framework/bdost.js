@@ -290,6 +290,7 @@ function priceRange(message,questionCode){
 
   for(var i in answers){
     var arr = answers[i].split('-');
+    console.log(arr);
     
     if(arr[0] && arr[1]){
       if(message >= arr[0] && message <= arr[1]){

@@ -253,12 +253,18 @@ function closestNumber(questionCode, closestTo){
   var q = qFile.questions[questionCode-1];
   var answers = q.answers;
 
+
   var closest = Math.max.apply(null, answers); //Get the highest number in arr in case it match nothing.
+  console.log("closest value="+closest);
 
   for(var i = 0; i < answers.length; i++){ //Loop the array
-    if(answers[i] >= closestTo && answers[i] < closest) closest = answers[i]; //Check if it's higher than your number, but lower than your closest value
+    if(answers[i] >= closestTo && answers[i] < closest){
+      closest = answers[i];
+      console.log("inside loop: closest:"+closest);
+    } //Check if it's higher than your number, but lower than your closest value
   }
 
+  console.log("returned value="+closest);
   return closest; // return the value
 }
 

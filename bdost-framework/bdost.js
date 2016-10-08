@@ -260,7 +260,7 @@ function closestNumber(questionCode, closestTo){
   for(var i = 0; i < answers.length; i++){ //Loop the array
     console.log("answers.length:"+answers.length);
     console.log("if answers[i] >= closestTo && answers[i] < closest:"+answers[i]+" "+closestTo +" "+closest);
-    if(answers[i] >= closestTo && answers[i] < closest){
+    if(closestTo <= answers[i] && answers[i] < closest){
       closest = answers[i];
       console.log("inside loop: closest:"+closest);
     } //Check if it's higher than your number, but lower than your closest value

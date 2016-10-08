@@ -288,16 +288,23 @@ function priceRange(message,questionCode){
   var q = qFile.questions[questionCode-1];
   var answers = q.answers;
 
+  var result;
+
   for(var i in answers){
     var arr = answers[i].split('-');
     console.log(arr);
     
     if(arr[0] && arr[1]){
+      console.log("arr 0 ve 1 var.");
       if(message >= arr[0] && message <= arr[1]){
-        return answers[i];
+        console.log("karsilastirdim.");
+        result = answers[i];
       }
     }else{
-      return answers[i];
+      if(!result){
+        console.log(answers[i] + "karsilastirmadim.")
+        result = answers[i];
+      }
     }
   }
 

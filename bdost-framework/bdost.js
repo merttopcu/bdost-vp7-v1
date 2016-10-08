@@ -296,7 +296,7 @@ function priceRange(message,questionCode){
     
     if(arr[0] && arr[1]){
       console.log("arr 0 ve 1 var.");
-      if(message >= arr[0] && message <= arr[1]){
+      if(message >= parseInt(arr[0]) && message <= parseInt(arr[1])){
         console.log("karsilastirdim.");
         result = answers[i];
       }
@@ -307,6 +307,8 @@ function priceRange(message,questionCode){
       }
     }
   }
+
+  return result;
 
 }
 

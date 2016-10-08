@@ -244,6 +244,7 @@ function findRequiredModel(message,file){
   return checkFound;
 }
 
+//is not used but useful.
 function isNumeric(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
@@ -266,7 +267,6 @@ function closestNumber(questionCode, closestTo){
   console.log("returned value="+closest);
   return closest; // return the value
 }
-
 function getAnswer(message,questionCode){
   var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
   var q = qFile.questions[questionCode-1];
@@ -282,6 +282,24 @@ function getAnswer(message,questionCode){
   }
 
   return checkFound;
+}
+function priceRange(message,questionCode){
+  var qFile = JSON.parse(fs.readFileSync(__dirname + bdostTxt.questions));
+  var q = qFile.questions[questionCode-1];
+  var answers = q.answers;
+
+  for(var i in answers){
+    var arr = answers[i].split('-');
+    
+    if(arr[0] && arr[1]){
+      if(message >= arr[0] && message <= arr[1]){
+        return answers[i];
+      }
+    }else{
+      return answers[i];
+    }
+  }
+
 }
 
 function manuelLowerCase(text){
@@ -529,15 +547,10 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 4 && fd.qThree === ""){
+    //strip all non-numeric
     messageText = messageText.replace(/\D/g,'');
     
-    //if(isNumeric(messageText)){
     fd.qThree = closestNumber(3,messageText)
-    /*}else{
-      if(getAnswer(messageText,3)){
-        fd.qThree = messageText;
-      }
-    }*/
 
     if(fd.qThree === ""){
       fd.step = 3;
@@ -547,9 +560,15 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 5 && fd.qFour === ""){
-    fd.qFour = messageText;
-    if(fd.qTwo === ""){
-      fd.step = 3;
+
+    if(getAnswer(messageText,4)){
+      fd.qFour = messageText;
+    }else{
+      fd.qFour = priceRange(messageText,4);
+    }
+    
+    if(fd.qFour === ""){
+      fd.step = 4;
     }else{
 
       facebook.sendTextMessage(senderID,bdostTxt.MOResult,fd.db);

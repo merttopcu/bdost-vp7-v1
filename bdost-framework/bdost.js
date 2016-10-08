@@ -258,11 +258,9 @@ function closestNumber(questionCode, closestTo){
   console.log("closest value="+closest);
 
   for(var i = 0; i < answers.length; i++){ //Loop the array
-
-    if(answers[i] <= closestTo && answers[i] < closest){
-      closest = answers[i];
-      console.log("inside loop: closest:"+closest);
-    } //Check if it's higher than your number, but lower than your closest value
+    if(answers[i] >= closestTo && answers[i] < closest){
+      closest = arr[i];
+    }
   }
 
   console.log("returned value="+closest);

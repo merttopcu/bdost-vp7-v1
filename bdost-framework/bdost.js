@@ -254,12 +254,12 @@ function closestNumber(questionCode, closestTo){
   var answers = q.answers;
 
 
-  var closest = Math.max.apply(null, answers); //Get the highest number in arr in case it match nothing.
+  var closest = Math.max.apply(null, answers); //Get the highest number in answers in case it match nothing.
   console.log("closest value="+closest);
 
   for(var i = 0; i < answers.length; i++){ //Loop the array
     if(answers[i] >= closestTo && answers[i] < closest){
-      closest = arr[i];
+      closest = answers[i];
     }
   }
 

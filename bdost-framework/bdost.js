@@ -276,7 +276,7 @@ function getAnswer(message,questionCode){
   var checkFound = false;
 
   for(var i in answers){
-    if(keyword.toString().indexOf(manuelLowerCase(answers[i])) >= 0){
+    if(keyword.toString().indexOf(manuelLowerCase(answers[i].toString())) >= 0){
       checkFound = true;
     }
   }

@@ -556,12 +556,11 @@ function stepOne(senderID, messageText){
     
     if(messageText){
       fd.qThree = closestNumber(3,messageText)
-    }else{
-      fd.qThree = "";
     }
 
     if(fd.qThree === ""){
       fd.step = 3;
+      facebook.sendQuestion(senderID,3,fd.db);
     }else{
       facebook.sendQuestion(senderID,4,fd.db);
     }
@@ -576,13 +575,12 @@ function stepOne(senderID, messageText){
 
       if(messageText){
         fd.qFour = priceRange(messageText,4);
-      }else{
-        fd.qFour = "";
       }
     }
     
     if(fd.qFour === ""){
       fd.step = 4;
+      facebook.sendQuestion(senderID,4,fd.db);
     }else{
 
       facebook.sendTextMessage(senderID,bdostTxt.MOResult,fd.db);

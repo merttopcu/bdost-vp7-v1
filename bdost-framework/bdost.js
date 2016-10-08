@@ -280,6 +280,7 @@ function getAnswer(message,questionCode){
       checkFound = true;
     }
   }
+
   return checkFound;
 }
 
@@ -528,14 +529,15 @@ function stepOne(senderID, messageText){
   }
 
   if(fd.step === 4 && fd.qThree === ""){
-
-    if(isNumeric(messageText)){
-      fd.qThree = closestNumber(3,messageText)
-    }else{
+    messageText = messageText.replace(/\D/g,'');
+    
+    //if(isNumeric(messageText)){
+    fd.qThree = closestNumber(3,messageText)
+    /*}else{
       if(getAnswer(messageText,3)){
         fd.qThree = messageText;
       }
-    }
+    }*/
 
     if(fd.qThree === ""){
       fd.step = 3;

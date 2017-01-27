@@ -1,11 +1,11 @@
 {
-	//"WIT_TOKEN"			 	: "KXBPWUKVGPE2GRUBNUC7ZQ7OCVXL4IXU",
-    "FB_APP_SECRET"		 	: "a21d4bee0e391aba55c913095e5090d9",
-    "FB_PAGE_TOKEN"		 	: "EAAQCBfG8r9MBAMOl16teh0N8tA9RseZCOPZAN46l967xZB0vkZC6FL7QXZCiDRdr4qESO3hd0orSiQ6NxFYcmg43pYce6xGqY2ZA4BE9BGhxiuzZCvGfokJSyabaDX7zzqENJcRtGOcNxwoH7ZCG0nFKYsPJQpPtF2lZC0sOWEupmZAgZDZD",
+	"WIT_TOKEN"			 	: "ERKVSUWL3PUXD6F2M36VXQVBEK3QAYNV",
+    "FB_APP_SECRET"		 	: "d1df6da77bc6a9544801ebf0ee25a9c7",
+    "FB_PAGE_TOKEN"		 	: "EAAYzvZCX9o0IBAM696OqFlowxlvrZCF5ycs6LGCkrU7vqfYqV8RyJA27jt5ucl7LXROasxCtYxPpuvep4eGFZB6aVgZBFUsZADupWqerGr8wgJ22KaVekO2XlYoMIoRaANK6SoFrT0R6ZCbOGhp3ZBm40k4eK7ABJzFrFAzPSNE1wZDZD",
     "FB_VALIDATION_TOKEN"	: "bdost_s_sun_glasses",
-    "SERVER_URL"		 	: "https://bdost-vp7-v1.herokuapp.com/",
+    "SERVER_URL"		 	: "https://bdost-ata1938.herokuapp.com/",
 
     //"BOT_ANALYTICS_TOKEN"   : "ff176a781808ec9d4c72b25b780fc378",
 
-    "DATABASE"				: "mongodb://BDOSTVP7:BDOST_8@ds041939.mlab.com:41939/heroku_wz85k4md"
+    //"DATABASE"				: "mongodb://BDOSTVP7:BDOST_8@ds041939.mlab.com:41939/heroku_wz85k4md"
 }

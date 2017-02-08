@@ -222,8 +222,7 @@ function sendGenericMessage(recipientId,attachment) {
     },
     message: attachment
   };  
-  //console.log(messageData.message.attachment.payload.elements.length);
-  console.log(messageData);
+  console.log(messageData.message.attachment.payload.elements.length);
 
   for(var i=0; i < messageData.message.attachment.payload.elements.length; i++){
     console.log(messageData.message.attachment.payload.elements[i].buttons[0].url);
@@ -231,6 +230,7 @@ function sendGenericMessage(recipientId,attachment) {
   }
   
   //botAnalytics.track(recipientId,messageData.message,new Date().getTime());
+  console.log("payload: ", messageData.message.attachment.payload);
   callSendAPI(messageData);
 }
 

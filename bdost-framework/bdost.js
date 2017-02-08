@@ -584,12 +584,46 @@ function stepOne(senderID, messageText){
     }else{
 
       facebook.sendTextMessage(senderID,bdostTxt.MOResult,fd.db);
+      var g_attachment = {
+        "type":"template",
+        "payload":{
+          "template_type":"generic",
+          "elements":[
+            {
+              "title":"Welcome to Peter\'s Hats",
+              "image_url":"https://petersfancybrownhats.com/company_image.png",
+              "subtitle":"We\'ve got the right hat for everyone.",
+              "default_action": {
+                "type": "web_url",
+                "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+                "messenger_extensions": true,
+                "webview_height_ratio": "tall",
+                "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                },
+              "buttons":[
+                {
+                  "type":"web_url",
+                  "url":"https://petersfancybrownhats.com",
+                  "title":"View Website"
+                },{
+                  "type":"postback",
+                  "title":"Start Chatting",
+                  "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                }              
+              ]      
+            }
+          ]
+        }
+      };
+
       setTimeout(function() {
         facebook.sendTextMessage(senderID,bdostTxt.MOSearchMessage,fd.db);
       }, 1000)
       setTimeout(function() {
         facebook.sendTextMessage(senderID,"API goes here.",fd.db);
         facebook.sendTextMessage(senderID,"a1:"+fd.qOne+" a2:"+fd.qTwo+" a3:"+fd.qThree+" a4:"+fd.qFour);
+        // insert generic template function sendGenericMessage(recipientId,attachment)
+        facebook.sendGenericMessage(senderID, g_attachment);
       }, 2000)
     
       setTimeout(function() {

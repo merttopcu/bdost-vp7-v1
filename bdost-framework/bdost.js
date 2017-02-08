@@ -584,7 +584,7 @@ function stepOne(senderID, messageText){
     }else{
 
       facebook.sendTextMessage(senderID,bdostTxt.MOResult,fd.db);
-      var g_attachment = [{
+      var g_attachment = {
         "type":"template",
         "payload":{
           "template_type":"generic",
@@ -614,7 +614,8 @@ function stepOne(senderID, messageText){
             }
           ]
         }
-      }];
+      };
+      console.log("attachment: ", g_attachment);
 
       setTimeout(function() {
         facebook.sendTextMessage(senderID,bdostTxt.MOSearchMessage,fd.db);

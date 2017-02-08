@@ -599,25 +599,22 @@ function stepOne(senderID, messageText){
               "template_type":"generic",
               "elements":[
                 {
-                  "title":"Welcome to Peter\'s Hats",
-                  "image_url":"https://petersfancybrownhats.com/company_image.png",
-                  "subtitle":"We\'ve got the right hat for everyone.",
+                  "title":"Telefon #1",
+                  "image_url":"http://jobmin.biz/images/galaxy-s6_1.png",
+                  "subtitle":"Sizin icin sectigimiz telefon #1.",
                   "default_action": {
                     "type": "web_url",
-                    "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-                    "messenger_extensions": true,
-                    "webview_height_ratio": "tall",
-                    "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+                    "url": "http://www.vodafone.com.tr/"
                     },
                   "buttons":[
                     {
                       "type":"web_url",
-                      "url":"https://petersfancybrownhats.com",
+                      "url":"http://www.vodafone.com.tr/",
                       "title":"View Website"
                     },{
                       "type":"postback",
                       "title":"Start Chatting",
-                      "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                      "payload":"PAYLOAD_RUNAGAIN"
                     }              
                   ]      
                 }

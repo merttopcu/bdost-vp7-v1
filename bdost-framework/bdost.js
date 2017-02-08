@@ -624,7 +624,8 @@ function stepOne(senderID, messageText){
           }
         };
       console.log("attachment: ", g_attachment);
-      facebook.sendGenericMessage(senderID, g_attachment);
+      facebook.sendButtonMessage(recipientId, dbProcess);
+      //facebook.sendGenericMessage(senderID, g_attachment);
       }, 2000)
     
       setTimeout(function() {

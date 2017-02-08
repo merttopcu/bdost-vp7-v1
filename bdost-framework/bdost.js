@@ -614,7 +614,7 @@ function stepOne(senderID, messageText){
                     },{
                       "type":"postback",
                       "title":"Yeni Telefon Bul",
-                      "payload":"PAYLOAD_RUNAGAIN"
+                      "payload":"PAYLOAD_MODELONE"
                     }              
                   ]      
                 }

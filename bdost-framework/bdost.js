@@ -599,7 +599,7 @@ function stepOne(senderID, messageText){
               "template_type":"generic",
               "elements":[
                 {
-                  "title":"Telefon #1",
+                  "title":"Samsung Galaxy S7",
                   "image_url":"http://jobmin.biz/images/galaxy-s6_1.png",
                   "subtitle":"Sizin icin sectigimiz telefon #1.",
                   "default_action": {
@@ -610,10 +610,10 @@ function stepOne(senderID, messageText){
                     {
                       "type":"web_url",
                       "url":"http://www.vodafone.com.tr/",
-                      "title":"View Website"
+                      "title":"Telefon Detaylari"
                     },{
                       "type":"postback",
-                      "title":"Start Chatting",
+                      "title":"Yeni Telefon Bul",
                       "payload":"PAYLOAD_RUNAGAIN"
                     }              
                   ]      

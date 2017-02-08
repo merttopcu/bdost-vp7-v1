@@ -6,5 +6,5 @@
     "SERVER_URL"		 	: "https://bdost-ata1938.herokuapp.com/",
 
     //"BOT_ANALYTICS_TOKEN"   : "ff176a781808ec9d4c72b25b780fc378",
-    //"DATABASE"				: "mongodb://BDOSTVP7:BDOST_8@ds041939.mlab.com:41939/heroku_wz85k4md"
+    "DATABASE"				: "mongodb://BDOSTVP7:BDOST_8@ds041939.mlab.com:41939/heroku_wz85k4md"
 }

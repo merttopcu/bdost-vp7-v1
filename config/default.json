@@ -1,9 +1,9 @@
 {
 	"WIT_TOKEN"			 	: "ERKVSUWL3PUXD6F2M36VXQVBEK3QAYNV",
-    "FB_APP_SECRET"		 	: "d1df6da77bc6a9544801ebf0ee25a9c7",
+    "FB_APP_SECRET"		 	: "a21d4bee0e391aba55c913095e5090d9",
     "FB_PAGE_TOKEN"		 	: "EAAQCBfG8r9MBAD0NPWdHmMee6sY89QTIqXJZBPrpE9BJ705pPWX2CRNyfncC26VLY5qLu5vZBc1L5ZCz8lifmVZAD3yhvcQQOt686TfVnzA91Dl3thCFG13eQ6tL3LeZCIkDtHSTulx7jZCh3I1xZC5ZCzzyoX81ZCVMZA7l7Ef9s0ZCQZDZD",
     "FB_VALIDATION_TOKEN"	: "bdost_s_sun_glasses",
-    "SERVER_URL"		 	: "https://bdost-ata1938.herokuapp.com/",
+    "SERVER_URL"		 	: "https://bdost-vp7-v1.herokuapp.com/",
 
     //"BOT_ANALYTICS_TOKEN"   : "ff176a781808ec9d4c72b25b780fc378",
     "DATABASE"				: "mongodb://BDOSTVP7:BDOST_8@ds041939.mlab.com:41939/heroku_wz85k4md"

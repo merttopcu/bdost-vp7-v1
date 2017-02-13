@@ -166,6 +166,11 @@ function sendQuickReply(recipientId, username, dbProcess) {
           "content_type":"text",
           "title": bdostTxt.modelPlus,
           "payload":"PAYLOAD_MODELPLUS"
+        },
+        {
+          "content_type":"text",
+          "title": "Kampanyalar",
+          "payload":"PAYLOAD_MODELPLUS"
         }
       ]
     }

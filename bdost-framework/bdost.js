@@ -617,8 +617,7 @@ function stepOne(senderID, messageText){
                       "payload":"PAYLOAD_MODELONE"
                     }              
                   ]      
-                }
-              ],[
+                },
                 {
                   "title":"Huawei P9",
                   "image_url":"http://jobmin.biz/images/hp9.pgn",

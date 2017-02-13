@@ -600,7 +600,7 @@ function stepOne(senderID, messageText){
               "elements":[
                 {
                   "title":"Samsung Galaxy S7",
-                  "image_url":"http://jobmin.biz/images/galaxy-s6_1.png",
+                  "image_url":"http://jobmin.biz/images/galaxy-s6_2.png",
                   "subtitle":"Sizin icin sectigimiz telefon #1.",
                   "default_action": {
                     "type": "web_url",
@@ -620,7 +620,7 @@ function stepOne(senderID, messageText){
                 },
                 {
                   "title":"Huawei P9",
-                  "image_url":"http://jobmin.biz/images/hp9.pgn",
+                  "image_url":"http://jobmin.biz/images/hp9-2.png",
                   "subtitle":"Sizin icin sectigimiz telefon #2.",
                   "default_action": {
                     "type": "web_url",

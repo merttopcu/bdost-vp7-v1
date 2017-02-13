@@ -12,7 +12,7 @@ exports.txtBye		 		= "Görüşmek üzere... :)";
 
 // 2 + 1 model
 exports.modelOne	 		= "Telefon Modelleri";
-exports.modelPlus	 		= "Yetkili İle Görüş";
+exports.modelPlus	 		= "Tarifeler";
 
 //----------------- Model One -----------------
 exports.MOWelcome  			= "Süper, size uygun telefon modellerini yönlendirebilmek için bazı sorular soracağım. Hazır mısınız?";

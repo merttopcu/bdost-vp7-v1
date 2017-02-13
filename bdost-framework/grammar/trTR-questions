@@ -4,20 +4,20 @@
       "question": "Telefonu ne için kullanmayı seviyorsunuz?",
       "questionCode": 1,
       "answers": [
-        "Oyun",
-        "İnternet",
-        "Navigasyon",
-        "İş"
+        "🎮 Oyun",
+        "ℹ️️ İnternet",
+        "📍 Navigasyon",
+        "👔 İş"
       ]
     },
     {
       "question": "Sizin için en önemli özellik nedir?",
       "questionCode": 2,
       "answers": [
-        "Kamera",
-        "Ekran",
-        "Pil",
-        "Hız"
+        "📸 Kamera",
+        "📱 Ekran",
+        "🔋 Pil",
+        "⚡ Hız"
       ]
     },
     {
@@ -34,10 +34,10 @@
       "question": "Fiyat aralığınız nedir?",
       "questionCode": 4,
       "answers": [
-        "0-500",
-        "500-1000",
-        "1000-2000",
-        "2000+"
+        "0-500TL",
+        "500TL-1000TL",
+        "1000TL-2000TL",
+        "2000TL+"
       ]
     }
   ]

@@ -600,8 +600,29 @@ function stepOne(senderID, messageText){
               "elements":[
                 {
                   "title":"Samsung Galaxy S7",
-                  "image_url":"http://jobmin.biz/images/HuaweiP9-224x224-Beyaz.jpg",
+                  "image_url":"http://jobmin.biz/images/galaxy-s6_1.png",
                   "subtitle":"Sizin icin sectigimiz telefon #1.",
+                  "default_action": {
+                    "type": "web_url",
+                    "url": "http://www.vodafone.com.tr/"
+                    },
+                  "buttons":[
+                    {
+                      "type":"web_url",
+                      "url":"http://www.vodafone.com.tr/",
+                      "title":"Telefon Detaylari"
+                    },{
+                      "type":"postback",
+                      "title":"Yeni Telefon Bul",
+                      "payload":"PAYLOAD_MODELONE"
+                    }              
+                  ]      
+                }
+              ],[
+                {
+                  "title":"Huawei P9",
+                  "image_url":"http://jobmin.biz/images/hp9.pgn",
+                  "subtitle":"Sizin icin sectigimiz telefon #2.",
                   "default_action": {
                     "type": "web_url",
                     "url": "http://www.vodafone.com.tr/"

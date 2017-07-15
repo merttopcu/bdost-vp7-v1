@@ -22,6 +22,6 @@
     "fast-levenshtein": "^2.0.4"
   },
   "engines": {
-    "node": "~6.5.0"
+    "node": "6.11.1"
   }
 }
